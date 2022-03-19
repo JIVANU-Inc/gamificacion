@@ -33,7 +33,14 @@
         />
         <!-- CSS -->
         <link rel="stylesheet" href="css/style.css" />
+        <!-- Datatables.js -->
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"
+        />
     </head>
+
     <body class="d-flex flex-column min-vh-100">
         <div class="preloader">
             <div class="loader">
@@ -92,14 +99,14 @@
                                             class="navbar-nav ms-auto"
                                         >
                                             <li class="nav-item">
-                                                <a
-                                                    class="active"
-                                                    href="./index.html"
+                                                <a class="" href="./index.html"
                                                     >Inicio</a
                                                 >
                                             </li>
                                             <li class="nav-item">
-                                                <a class="" href="./files.html"
+                                                <a
+                                                    class="active"
+                                                    href="./files.html"
                                                     >Documentos</a
                                                 >
                                             </li>
@@ -115,7 +122,7 @@
                                         <a href="#">
                                             <i class="bi bi-person-circle"></i>
                                         </a>
-                                        <a id="accessibility">
+                                        <a href="#">
                                             <i class="fa fa-wheelchair"></i>
                                         </a>
                                     </div>
@@ -131,82 +138,27 @@
                 <div class="row justify-content-center">
                     <div class="col-xxl-5 col-xl-5 col-lg-7 col-md-8">
                         <div class="section-title text-center mb-60">
-                            <h3 class="mb-15">
-                                BIENVENIDOS A LA PLATAFORMA DE EDUCACIÓN
-                            </h3>
+                            <h3 class="mb-15">DOCUMENTOS DE ESTUDIO</h3>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-feature"><a  href="./index.html">
-                            <div class="icon">
-                                <i class="bi bi-house"></i>
-                                <svg
-                                    width="110"
-                                    height="72"
-                                    viewBox="0 0 110 72"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M 110,54.7589 C 110,85.0014 84.489937,82.202038 54.114237,82.202038 23.738537,82.202038 0,85.0014 0,54.7589 0,24.5164 24.6243,0 55,0 c 30.3757,0 55,24.5164 55,54.7589 z"
-                                        fill="#d33f2b0c"
-                                    />
-                                </svg>
-                            </div>
-                            <div class="content">
-                                <h5>Home</h5>
-                                <p>Lorem ipsum dolor sit.</p>
-                            </div>
-                        </div></a>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-feature"><a  href="./files.html">
-                            <div class="icon">
-                                <i class="bi bi-file-earmark-text"></i>
-                                <svg
-                                    width="110"
-                                    height="72"
-                                    viewBox="0 0 110 72"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M 110,54.7589 C 110,85.0014 84.489937,82.202038 54.114237,82.202038 23.738537,82.202038 0,85.0014 0,54.7589 0,24.5164 24.6243,0 55,0 c 30.3757,0 55,24.5164 55,54.7589 z"
-                                        fill="#d33f2b0c"
-                                    />
-                                </svg>
-                            </div>
-                            <div class="content">
-                                <h5>Documentos</h5>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div></a>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="single-feature"><a href="./play.html">
-                            <div class="icon">
-                                <i class="bi bi-controller"></i>
-                                <svg
-                                    width="110"
-                                    height="72"
-                                    viewBox="0 0 110 72"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M 110,54.7589 C 110,85.0014 84.489937,82.202038 54.114237,82.202038 23.738537,82.202038 0,85.0014 0,54.7589 0,24.5164 24.6243,0 55,0 c 30.3757,0 55,24.5164 55,54.7589 z"
-                                        fill="#d33f2b0c"
-                                    />
-                                </svg>
-                            </div>
-                            <div class="content">
-                                <h5>Juegos</h5>
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </div>
-                        </div></a>
-                    </div>
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                <th>Tema de estudio</th>
+                                <th>Nombre del archivo</th>
+                                <th>Fecha de subida</th>
+                                <th>Descarga</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td>Tema 1</td>
+                            <td>Nombre_Archivo_1</td>
+                            <td>19-03-2022</td>
+                            <td>Descargar</td>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
@@ -226,8 +178,76 @@
         </footer>
 
         <!-- JavaScript -->
-        <script src="js/main.js"></script>
+        <script src="./js/main.js"></script>
         <!-- Bootstrap JS -->
         <script src="js/bootstrap-5.0.0-beta1.min.js"></script>
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <!-- Datatables.js CDN -->
+        <script
+            type="text/javascript"
+            charset="utf8"
+            src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"
+        ></script>
+        <!-- JavaScript -->
+        <script>
+            $(document).ready(function () {
+                $.extend(true, $.fn.dataTable.defaults, {
+                    language: {
+                        decimal: ",",
+                        thousands: ".",
+                        info: "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                        infoEmpty:
+                            "Mostrando registros del 0 al 0 de un total de 0 registros",
+                        infoPostFix: "",
+                        infoFiltered:
+                            "(filtrado de un total de _MAX_ registros)",
+                        loadingRecords: "Cargando...",
+                        lengthMenu: "Mostrar _MENU_ registros",
+                        paginate: {
+                            first: "Primero",
+                            last: "Último",
+                            next: "Siguiente",
+                            previous: "Anterior",
+                        },
+                        processing: "Procesando...",
+                        search: "Buscar:",
+                        searchPlaceholder: "Término de búsqueda",
+                        zeroRecords: "No se encontraron resultados",
+                        emptyTable: "Ningún dato disponible en esta tabla",
+                        aria: {
+                            sortAscending:
+                                ": Activar para ordenar la columna de manera ascendente",
+                            sortDescending:
+                                ": Activar para ordenar la columna de manera descendente",
+                        },
+                        //only works for built-in buttons, not for custom buttons
+                        buttons: {
+                            create: "Nuevo",
+                            edit: "Cambiar",
+                            remove: "Borrar",
+                            copy: "Copiar",
+                            csv: "fichero CSV",
+                            excel: "tabla Excel",
+                            pdf: "documento PDF",
+                            print: "Imprimir",
+                            colvis: "Visibilidad columnas",
+                            collection: "Colección",
+                            upload: "Seleccione fichero....",
+                        },
+                        select: {
+                            rows: {
+                                _: "%d filas seleccionadas",
+                                0: "clic fila para seleccionar",
+                                1: "una fila seleccionada",
+                            },
+                        },
+                    },
+                });
+                $("#myTable").DataTable({
+                    responsive: true,
+                });
+            });
+        </script>
     </body>
 </html>

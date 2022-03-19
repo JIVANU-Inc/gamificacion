@@ -774,6 +774,11 @@ p {
     margin-bottom: 25px;
 }
 
+.feature-style-5 .single-feature a {
+    text-decoration: none;
+    color: #d81e05;
+}
+
 .footer-style-4 {
     background: #f3f3f3;
 }

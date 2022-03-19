@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
@@ -910,6 +911,31 @@ p {
 
 .footer-style-4.footer-dark .copyright-wrapper p {
     color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-primary {
+    background-color: #961302;
+    border-color: #fff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    border-color: #961302;
+    color: #961302;
+}
+
+.black-text {
+    color: #252525;
+    font-weight: bold;
+}
+
+.smaller {
+    font-size: 13px;
+}
+
+.bigger {
+    font-size: 20px;
 }
 
 .radius-3 {

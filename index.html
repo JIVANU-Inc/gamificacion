@@ -251,7 +251,7 @@
             aria-hidden="true"
         >
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content text-center">
                     <div class="modal-body">
                         <div class="modal-header">
                             <h5 class="modal-title" id="staticBackdropLabel">
@@ -259,7 +259,7 @@
                             </h5>
                         </div>
                         <div class="modal-body black-text">
-                            <h6>Tamaño de letra</h6>
+                            <h6 class="mb-3">Tamaño de letra</h6>
                             <p>
                                 <span class="smaller">A</span>
                                 <input
@@ -274,42 +274,38 @@
                                 <span class="bigger">A</span>
                             </p>
                             <hr />
-                            <h6>Tema</h6>
-                            <div class="form-check form-switch">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    role="switch"
-                                    id="switchTheme"
-                                />
-                                <label
-                                    class="form-check-label"
-                                    for="switchTheme"
+                            <h6 class="mb-3">Tema</h6>
+                            <p>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-dark"
                                 >
                                     <i class="bi bi-brightness-high"></i>
                                     (Claro)
+                                </button>
+                                <br />
+                                <button
+                                    type="button"
+                                    class="btn btn-dark dark-to-light"
+                                >
                                     <i class="bi bi-moon-fill"></i> (Oscuro)
-                                </label>
-                            </div>
+                                </button>
+                            </p>
                             <hr />
-                            <h6>Modo para daltónicos</h6>
-                            <div class="form-check form-switch">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    role="switch"
-                                    id="switchDalt"
-                                />
-                                <label
-                                    class="form-check-label"
-                                    for="switchDalt"
+                            <h6 class="mb-3">Modo para daltónicos</h6>
+                            <p>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-warning black-text"
+                                    value="0"
+                                    id="daltonicButton"
                                 >
                                     <i class="bi bi-eyeglasses"></i> (Apagado)
-                                    <i class="bi bi-sunglasses"></i> (Encendido)
-                                </label>
-                            </div>
+                                    <!-- <i class="bi bi-sunglasses"></i> (Encendido) -->
+                                </button>
+                            </p>
                             <hr />
-                            <h6>Lectura por voz</h6>
+                            <h6 class="mb-3">Lectura por voz</h6>
                             <p>
                                 <button type="button" class="btn btn-secondary">
                                     <i class="bi bi-megaphone-fill"></i>

@@ -79,16 +79,20 @@
                                         </li>
                                     </ul>
                                 </div>
-
-                                <div class="header-action d-flex">
-                                    <a href="#">
-                                        <i class="bi bi-person-circle"></i>
-                                    </a>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                        <i class="fa fa-wheelchair"></i>
-                                    </a>
-                                </div>
-                            </nav>
+                                    <div class="header-action d-flex">
+                                        <a href="#">
+                                            <i class="bi bi-person-circle"></i>
+                                        </a>
+                                        <a
+                                            href="#"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#accesibility"
+                                        >
+                                            <i class="fa fa-wheelchair"></i>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -176,43 +180,72 @@
             </p>
         </div>
     </footer>
-
-    <!-- Modal accesibility -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">
-                            Opciones
-                        </h5>
-                    </div>
-                    <div class="modal-body black-text">
-                        <h6>Tamaño de letra</h6>
-                        <p>
-                            <span class="smaller">A</span>
-                            <input type="range" min="13" max="20" value="16" step="1" class="slider" id="myRange" />
-                            <span class="bigger">A</span>
-                        </p>
-                        <hr />
-                        <h6>Tema</h6>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchTheme" />
-                            <label class="form-check-label" for="switchTheme">
-                                <i class="bi bi-brightness-high"></i>
-                                (Claro)
-                                <i class="bi bi-moon-fill"></i> (Oscuro)
-                            </label>
+        <!-- Modal accesibility -->
+        <div
+            class="modal fade"
+            id="accesibility"
+            data-bs-backdrop="static"
+            data-bs-keyboard="true"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content text-center">
+                    <div class="modal-body">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">
+                                Opciones
+                            </h5>
                         </div>
-                        <hr />
-                        <h6>Modo para daltónicos</h6>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchDalt" />
-                            <label class="form-check-label" for="switchDalt">
-                                <i class="bi bi-eyeglasses"></i> (Apagado)
-                                <i class="bi bi-sunglasses"></i> (Encendido)
-                            </label>
+                        <div class="modal-body black-text">
+                            <h6 class="mb-3">Tamaño de letra</h6>
+                            <p>
+                                <span class="smaller">A</span>
+                                <input
+                                    type="range"
+                                    min="13"
+                                    max="20"
+                                    value="16"
+                                    step="1"
+                                    class="slider"
+                                    id="myRange"
+                                />
+                                <span class="bigger">A</span>
+                            </p>
+                            <hr />
+                            <h6 class="mb-3">Tema</h6>
+                            <p>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-dark"
+                                    value="light"
+                                    id="themeButton"
+                                >
+                                    <i class="bi bi-brightness-high"></i>
+                                    (Claro)
+                                </button>
+                            </p>
+                            <hr />
+                            <h6 class="mb-3">Modo para daltónicos</h6>
+                            <p>
+                                <button
+                                    type="button"
+                                    class="btn btn-warning black-text"
+                                    value="0"
+                                    id="daltonicButton"
+                                >
+                                    <i class="bi bi-eyeglasses"></i> (Apagado)
+                                    <!-- <i class="bi bi-sunglasses"></i> (Encendido) -->
+                                </button>
+                            </p>
+                            <hr />
+                            <h6 class="mb-3">Lectura por voz</h6>
+                            <p>
+                                <button type="button" class="btn btn-secondary">
+                                    <i class="bi bi-megaphone-fill"></i>
+                                </button>
+                            </p>
                         </div>
                         <hr />
                         <h6>Lectura por voz</h6>
@@ -231,13 +264,16 @@
             </div>
         </div>
     </div>
-
-    <!-- JavaScript -->
-    <script src="js/main.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-</body>
-
+        <!-- JavaScript -->
+        <script src="./js/main.js"></script>
+        <!-- Accessibility JS -->
+        <script src="./js/accessibility.js"></script>
+        <!-- Bootstrap JS -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>
+

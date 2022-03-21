@@ -1,7 +1,20 @@
 (function () {
-    // Preloader
-    window.onload = function () {
+    let themeButton = document.getElementById("themeButton");
+    let daltonicButton = document.getElementById("daltonicButton");
+
+    window.onload = () => {
+        // Preloader
         window.setTimeout(fadeout, 300);
+        // Accessibility
+        document.body.style.fontSize = "16px";
+
+        themeButton.value = "light";
+        themeButton.innerHTML = '<i class="bi bi-brightness-high"></i> (Claro)';
+        themeButton.classList.add("btn-outline-dark");
+        themeButton.classList.remove("btn-dark");
+        themeButton.classList.remove("dark-to-light");
+        daltonicButton.value = "0";
+        daltonicButton.innerHTML = '<i class="bi bi-eyeglasses"></i> (Apagado)';
     };
 
     function fadeout() {
@@ -10,7 +23,7 @@
     }
 
     // sticky menu
-    window.onscroll = function () {
+    window.onscroll = () => {
         var header_navbar = document.querySelector(
             ".hero-section-wrapper-5 .header"
         );
@@ -22,4 +35,34 @@
             header_navbar.classList.remove("sticky");
         }
     };
+
+    // accessibility
+    themeButton.addEventListener("click", function () {
+        if (themeButton.value == "light") {
+            themeButton.value = "dark";
+            themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> (Oscuro)';
+            themeButton.classList.remove("btn-outline-dark");
+            themeButton.classList.add("btn-dark");
+            themeButton.classList.add("dark-to-light");
+        } else {
+            themeButton.value = "light";
+            themeButton.innerHTML =
+                '<i class="bi bi-brightness-high"></i> (Claro)';
+            themeButton.classList.add("btn-outline-dark");
+            themeButton.classList.remove("btn-dark");
+            themeButton.classList.remove("dark-to-light");
+        }
+    });
+
+    daltonicButton.addEventListener("click", function () {
+        if (daltonicButton.value == "0") {
+            daltonicButton.value = "1";
+            daltonicButton.innerHTML =
+                "<i class='bi bi-sunglasses'></i> (Encendido)";
+        } else {
+            daltonicButton.value = "0";
+            daltonicButton.innerHTML =
+                '<i class="bi bi-eyeglasses"></i> (Apagado)';
+        }
+    });
 })();

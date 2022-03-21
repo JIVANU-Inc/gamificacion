@@ -925,6 +925,12 @@ p {
     color: #961302;
 }
 
+/* Accessibility modal buttons */
+.dark-to-light:hover {
+    background: #fff;
+    color: #212529;
+}
+
 .black-text {
     color: #252525;
     font-weight: bold;

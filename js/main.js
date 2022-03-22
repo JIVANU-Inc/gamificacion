@@ -1,4 +1,5 @@
 (function () {
+    let myRange = document.getElementById("myRange");
     let themeButton = document.getElementById("themeButton");
     let daltonicButton = document.getElementById("daltonicButton");
 
@@ -8,6 +9,7 @@
         // Accessibility
         document.body.style.fontSize = "16px";
 
+        myRange.value = "16";
         themeButton.value = "light";
         themeButton.innerHTML = '<i class="bi bi-brightness-high"></i> (Claro)';
         themeButton.classList.add("btn-outline-dark");

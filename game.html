@@ -38,14 +38,7 @@
         />
         <!-- CSS -->
         <link rel="stylesheet" href="css/style.css" />
-        <!-- Datatables.js -->
-        <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"
-        />
     </head>
-
     <body class="d-flex flex-column min-vh-100">
         <div class="preloader">
             <div class="loader">
@@ -104,14 +97,14 @@
                                             class="navbar-nav ms-auto"
                                         >
                                             <li class="nav-item">
-                                                <a class="" href="./index.html"
+                                                <a
+                                                    class="active"
+                                                    href="./index.html"
                                                     >Inicio</a
                                                 >
                                             </li>
                                             <li class="nav-item">
-                                                <a
-                                                    class="active"
-                                                    href="./files.html"
+                                                <a class="" href="./files.html"
                                                     >Documentos</a
                                                 >
                                             </li>
@@ -127,7 +120,11 @@
                                         <a href="#">
                                             <i class="bi bi-person-circle"></i>
                                         </a>
-                                        <a href="#">
+                                        <a
+                                            href="#"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#accesibility"
+                                        >
                                             <i class="fa fa-wheelchair"></i>
                                         </a>
                                     </div>
@@ -140,31 +137,8 @@
         </section>
         <section id="feature" class="feature-section feature-style-5">
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xxl-5 col-xl-5 col-lg-7 col-md-8">
-                        <div class="section-title text-center mb-60">
-                            <h3 class="mb-15">DOCUMENTOS DE ESTUDIO</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <table id="myTable">
-                        <thead>
-                            <tr>
-                                <th>Tema de estudio</th>
-                                <th>Nombre del archivo</th>
-                                <th>Fecha de subida</th>
-                                <th>Descarga</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <td>Tema 1</td>
-                            <td>Nombre_Archivo_1</td>
-                            <td>19-03-2022</td>
-                            <td>Descargar</td>
-                        </tbody>
-                    </table>
-                </div>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque,
+                magnam!
             </div>
         </section>
 
@@ -182,77 +156,95 @@
             </div>
         </footer>
 
+        <!-- Modal accesibility -->
+        <div
+            class="modal fade"
+            id="accesibility"
+            data-bs-backdrop="static"
+            data-bs-keyboard="true"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content text-center">
+                    <div class="modal-body">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">
+                                Opciones
+                            </h5>
+                        </div>
+                        <div class="modal-body black-text">
+                            <h6 class="mb-3">Tamaño de letra</h6>
+                            <p>
+                                <span class="smaller">A</span>
+                                <input
+                                    type="range"
+                                    min="13"
+                                    max="20"
+                                    value="16"
+                                    step="1"
+                                    class="slider"
+                                    id="myRange"
+                                />
+                                <span class="bigger">A</span>
+                            </p>
+                            <hr />
+                            <h6 class="mb-3">Tema</h6>
+                            <p>
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-dark"
+                                    value="light"
+                                    id="themeButton"
+                                >
+                                    <i class="bi bi-brightness-high"></i>
+                                    (Claro)
+                                </button>
+                            </p>
+                            <hr />
+                            <h6 class="mb-3">Modo para daltónicos</h6>
+                            <p>
+                                <button
+                                    type="button"
+                                    class="btn btn-warning black-text"
+                                    value="0"
+                                    id="daltonicButton"
+                                >
+                                    <i class="bi bi-eyeglasses"></i> (Apagado)
+                                    <!-- <i class="bi bi-sunglasses"></i> (Encendido) -->
+                                </button>
+                            </p>
+                            <hr />
+                            <h6 class="mb-3">Lectura por voz</h6>
+                            <p>
+                                <button type="button" class="btn btn-secondary">
+                                    <i class="bi bi-megaphone-fill"></i>
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            data-bs-dismiss="modal"
+                            id="close"
+                        >
+                            Salir (esc)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- JavaScript -->
         <script src="./js/main.js"></script>
         <!-- Bootstrap JS -->
-        <script src="js/bootstrap-5.0.0-beta1.min.js"></script>
-        <!-- jQuery CDN -->
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <!-- Datatables.js CDN -->
         <script
-            type="text/javascript"
-            charset="utf8"
-            src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
         ></script>
-        <!-- JavaScript -->
-        <script>
-            $(document).ready(function () {
-                $.extend(true, $.fn.dataTable.defaults, {
-                    language: {
-                        decimal: ",",
-                        thousands: ".",
-                        info: "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                        infoEmpty:
-                            "Mostrando registros del 0 al 0 de un total de 0 registros",
-                        infoPostFix: "",
-                        infoFiltered:
-                            "(filtrado de un total de _MAX_ registros)",
-                        loadingRecords: "Cargando...",
-                        lengthMenu: "Mostrar _MENU_ registros",
-                        paginate: {
-                            first: "Primero",
-                            last: "Último",
-                            next: "Siguiente",
-                            previous: "Anterior",
-                        },
-                        processing: "Procesando...",
-                        search: "Buscar:",
-                        searchPlaceholder: "Término de búsqueda",
-                        zeroRecords: "No se encontraron resultados",
-                        emptyTable: "Ningún dato disponible en esta tabla",
-                        aria: {
-                            sortAscending:
-                                ": Activar para ordenar la columna de manera ascendente",
-                            sortDescending:
-                                ": Activar para ordenar la columna de manera descendente",
-                        },
-                        //only works for built-in buttons, not for custom buttons
-                        buttons: {
-                            create: "Nuevo",
-                            edit: "Cambiar",
-                            remove: "Borrar",
-                            copy: "Copiar",
-                            csv: "fichero CSV",
-                            excel: "tabla Excel",
-                            pdf: "documento PDF",
-                            print: "Imprimir",
-                            colvis: "Visibilidad columnas",
-                            collection: "Colección",
-                            upload: "Seleccione fichero....",
-                        },
-                        select: {
-                            rows: {
-                                _: "%d filas seleccionadas",
-                                0: "clic fila para seleccionar",
-                                1: "una fila seleccionada",
-                            },
-                        },
-                    },
-                });
-                $("#myTable").DataTable({
-                    responsive: true,
-                });
-            });
-        </script>
     </body>
 </html>

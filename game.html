@@ -71,7 +71,8 @@
                                         <img
                                             class="img-fluid"
                                             src="assets/img/logo/logo.jpg"
-                                            alt="Logo Fundación MAPFRE Guanarteme"
+                                            alt="Fundación MAPFRE Guanarteme"
+                                            id="logo"
                                         />
                                     </a>
                                     <button
@@ -210,13 +211,16 @@
                                     id="daltonicButton"
                                 >
                                     <i class="bi bi-eyeglasses"></i> (Apagado)
-                                    <!-- <i class="bi bi-sunglasses"></i> (Encendido) -->
                                 </button>
                             </p>
                             <hr />
                             <h6 class="mb-3">Lectura por voz</h6>
                             <p>
-                                <button type="button" class="btn btn-secondary">
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    id="lectura"
+                                >
                                     <i class="bi bi-megaphone-fill"></i>
                                 </button>
                             </p>
@@ -244,5 +248,46 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"
         ></script>
+        <!-- ResponsiveVoice -->
+        <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+        <script>
+            let web =
+                document.getElementById("logo").getAttribute("alt") + "\n";
+
+            let elems = document.body.innerText;
+
+            for (k in elems) {
+                web = web + elems[k];
+            }
+
+            let lectura = document.getElementById("lectura");
+
+            let lang = window.navigator.languages
+                ? window.navigator.languages[0]
+                : null;
+            lang =
+                lang ||
+                window.navigator.language ||
+                window.navigator.browserLanguage ||
+                window.navigator.userLanguage;
+            if (lang.indexOf("-") !== -1) lang = lang.split("-")[0];
+            if (lang.indexOf("_") !== -1) lang = lang.split("_")[0];
+            let say = "Bienvenido";
+            let voice = "Spanish Female";
+            switch (lang) {
+                case "es":
+                    say = web;
+                    voice = "Spanish Female";
+                    break;
+                default:
+                    say = "La lectura no está disponible en estos momentos";
+                    voice = "Spanish Female";
+                    break;
+            }
+
+            lectura.addEventListener("click", () => {
+                responsiveVoice.speak(web, voice);
+            });
+        </script>
     </body>
 </html>

@@ -36,14 +36,14 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         />
-        <!-- CSS -->
-        <link rel="stylesheet" href="css/style.css" />
         <!-- Datatables.js -->
         <link
             rel="stylesheet"
             type="text/css"
             href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css"
         />
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/style.css" id="theme" />
     </head>
     <body class="d-flex flex-column min-vh-100">
         <div class="preloader">
@@ -195,7 +195,7 @@
             aria-hidden="true"
         >
             <div class="modal-dialog">
-                <div class="modal-content text-center">
+                <div class="modal-content text-center" id="modal_content">
                     <div class="modal-body">
                         <div class="modal-header">
                             <h5 class="modal-title" id="staticBackdropLabel">
@@ -235,7 +235,7 @@
                             <p>
                                 <button
                                     type="button"
-                                    class="btn btn-warning black-text"
+                                    class="btn btn-warning black-text-daltonic"
                                     value="0"
                                     id="daltonicButton"
                                 >

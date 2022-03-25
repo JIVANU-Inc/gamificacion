@@ -46,6 +46,10 @@
             themeButton.classList.remove("btn-outline-dark");
             themeButton.classList.add("btn-dark");
             themeButton.classList.add("dark-to-light");
+            document.getElementById("theme").href = "./css/style_dark.css";
+            document
+                .getElementById("modal_content")
+                .classList.add("modal-content-dark");
         } else {
             themeButton.value = "light";
             themeButton.innerHTML =
@@ -53,6 +57,7 @@
             themeButton.classList.add("btn-outline-dark");
             themeButton.classList.remove("btn-dark");
             themeButton.classList.remove("dark-to-light");
+            document.getElementById("theme").href = "./css/style.css";
         }
     });
 

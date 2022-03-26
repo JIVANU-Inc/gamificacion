@@ -2,6 +2,7 @@
     let myRange = document.getElementById("myRange");
     let themeButton = document.getElementById("themeButton");
     let daltonicButton = document.getElementById("daltonicButton");
+    let daltonic = document.getElementById("colorblind_css");
 
     window.onload = () => {
         // Preloader
@@ -17,6 +18,7 @@
         themeButton.classList.remove("dark-to-light");
         daltonicButton.value = "0";
         daltonicButton.innerHTML = '<i class="bi bi-eyeglasses"></i> (Apagado)';
+        daltonic.href = "";
     };
 
     function fadeout() {
@@ -50,6 +52,14 @@
             document
                 .getElementById("modal_content")
                 .classList.add("modal-content-dark");
+            if (document.getElementById("daltonicButton").value == "1") {
+                // claro
+                document.getElementById("colorblind_css").href =
+                    "./css/style_colorblind_dark.css";
+            } else {
+                // oscuro
+                document.getElementById("colorblind_css").href = "";
+            }
         } else {
             themeButton.value = "light";
             themeButton.innerHTML =
@@ -58,18 +68,36 @@
             themeButton.classList.remove("btn-dark");
             themeButton.classList.remove("dark-to-light");
             document.getElementById("theme").href = "./css/style.css";
+            if (document.getElementById("daltonicButton").value == "1") {
+                // claro
+                document.getElementById("colorblind_css").href =
+                    "./css/style_colorblind.css";
+            } else {
+                // oscuro
+                document.getElementById("colorblind_css").href = "";
+            }
         }
     });
 
     daltonicButton.addEventListener("click", function () {
         if (daltonicButton.value == "0") {
+            // enciende
             daltonicButton.value = "1";
             daltonicButton.innerHTML =
                 "<i class='bi bi-sunglasses'></i> (Encendido)";
             document.getElementById("logo").src =
                 "./assets/img/logo/logo_colorblind.jpg";
-            document.getElementById("colorblind_css").href = "./css/style_colorblind.css";
+            if (document.getElementById("themeButton").value == "light") {
+                // claro
+                document.getElementById("colorblind_css").href =
+                    "./css/style_colorblind.css";
+            } else {
+                // oscuro
+                document.getElementById("colorblind_css").href =
+                    "./css/style_colorblind_dark.css";
+            }
         } else {
+            // apaga
             daltonicButton.value = "0";
             daltonicButton.innerHTML =
                 '<i class="bi bi-eyeglasses"></i> (Apagado)';

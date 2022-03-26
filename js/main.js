@@ -66,10 +66,13 @@
             daltonicButton.value = "1";
             daltonicButton.innerHTML =
                 "<i class='bi bi-sunglasses'></i> (Encendido)";
+            document.getElementById("logo").src =
+                "./assets/img/logo/logo_colorblind.jpg";
         } else {
             daltonicButton.value = "0";
             daltonicButton.innerHTML =
                 '<i class="bi bi-eyeglasses"></i> (Apagado)';
+            document.getElementById("logo").src = "./assets/img/logo/logo.jpg";
         }
     });
 })();

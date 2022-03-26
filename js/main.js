@@ -68,11 +68,13 @@
                 "<i class='bi bi-sunglasses'></i> (Encendido)";
             document.getElementById("logo").src =
                 "./assets/img/logo/logo_colorblind.jpg";
+            document.getElementById("colorblind_css").href = "./css/style_colorblind.css";
         } else {
             daltonicButton.value = "0";
             daltonicButton.innerHTML =
                 '<i class="bi bi-eyeglasses"></i> (Apagado)';
             document.getElementById("logo").src = "./assets/img/logo/logo.jpg";
+            document.getElementById("colorblind_css").href = "";
         }
     });
 })();

@@ -29,7 +29,7 @@ Integrantes de JIVANU:
 
 ## Licencia 📄
 
-Este pryecto se encuentra bajo la licencia [MIT License](https://opensource.org/licenses/MIT) - ver el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto se encuentra bajo la licencia [MIT License](https://opensource.org/licenses/MIT) - ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 

@@ -1,5 +1,6 @@
 (function () {
     window.onload = () => {
+        // Load the header and footer with ajax
         let ajax = new XMLHttpRequest();
         ajax.open("GET", "views/header.html", false);
         ajax.send();
@@ -8,11 +9,27 @@
         ajax.send();
         document.getElementById("footer").innerHTML += ajax.responseText;
 
+        // Navbar active class management
+        let url = window.location.href;
+        let file = url.split("/")[url.split("/").length - 1];
+        switch (file) {
+            case "" || "index.html":
+                document.getElementById("index").classList.add("active");
+                console.log(document.getElementById("index").classList);
+                break;
+            case "files.html":
+                document.getElementById("files").classList.add("active");
+                break;
+            case "game.html":
+                document.getElementById("game").classList.add("active");
+                break;
+        }
+
         // Preloader
         window.setTimeout(fadeout, 300);
+
         // Accessibility
         document.body.style.fontSize = "16px";
-
         document.getElementById("myRange").value = "16";
         document.getElementById("themeButton").value = "light";
         document.getElementById("themeButton").innerHTML =
@@ -31,12 +48,13 @@
         accesibility();
     };
 
+    // Preloader
     function fadeout() {
         document.querySelector(".preloader").style.opacity = "0";
         document.querySelector(".preloader").style.display = "none";
     }
 
-    // sticky menu
+    // Sticky menu
     window.onscroll = () => {
         var header_navbar = document.querySelector(
             ".hero-section-wrapper-5 .header"
@@ -50,6 +68,7 @@
         }
     };
 
+    // Accessibility
     function accesibility() {
         // accessibility
         document

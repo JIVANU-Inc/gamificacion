@@ -1,24 +1,34 @@
 (function () {
-    let myRange = document.getElementById("myRange");
-    let themeButton = document.getElementById("themeButton");
-    let daltonicButton = document.getElementById("daltonicButton");
-    let daltonic = document.getElementById("colorblind_css");
-
     window.onload = () => {
+        let ajax = new XMLHttpRequest();
+        ajax.open("GET", "views/header.html", false);
+        ajax.send();
+        document.getElementById("header").innerHTML += ajax.responseText;
+        ajax.open("GET", "views/footer.html", false);
+        ajax.send();
+        document.getElementById("footer").innerHTML += ajax.responseText;
+
         // Preloader
         window.setTimeout(fadeout, 300);
         // Accessibility
         document.body.style.fontSize = "16px";
 
-        myRange.value = "16";
-        themeButton.value = "light";
-        themeButton.innerHTML = '<i class="bi bi-brightness-high"></i> (Claro)';
-        themeButton.classList.add("btn-outline-dark");
-        themeButton.classList.remove("btn-dark");
-        themeButton.classList.remove("dark-to-light");
-        daltonicButton.value = "0";
-        daltonicButton.innerHTML = '<i class="bi bi-eyeglasses"></i> (Apagado)';
-        daltonic.href = "";
+        document.getElementById("myRange").value = "16";
+        document.getElementById("themeButton").value = "light";
+        document.getElementById("themeButton").innerHTML =
+            '<i class="bi bi-brightness-high"></i> (Claro)';
+        document
+            .getElementById("themeButton")
+            .classList.add("btn-outline-dark");
+        document.getElementById("themeButton").classList.remove("btn-dark");
+        document
+            .getElementById("themeButton")
+            .classList.remove("dark-to-light");
+        document.getElementById("daltonicButton").value = "0";
+        document.getElementById("daltonicButton").innerHTML =
+            '<i class="bi bi-eyeglasses"></i> (Apagado)';
+        document.getElementById("colorblind_css").href = "";
+        accesibility();
     };
 
     function fadeout() {
@@ -40,69 +50,96 @@
         }
     };
 
-    // accessibility
-    themeButton.addEventListener("click", function () {
-        if (themeButton.value == "light") {
-            themeButton.value = "dark";
-            themeButton.innerHTML = '<i class="bi bi-moon-fill"></i> (Oscuro)';
-            themeButton.classList.remove("btn-outline-dark");
-            themeButton.classList.add("btn-dark");
-            themeButton.classList.add("dark-to-light");
-            document.getElementById("theme").href = "./css/style_dark.css";
-            document
-                .getElementById("modal_content")
-                .classList.add("modal-content-dark");
-            if (document.getElementById("daltonicButton").value == "1") {
-                // claro
-                document.getElementById("colorblind_css").href =
-                    "./css/style_colorblind_dark.css";
-            } else {
-                // oscuro
-                document.getElementById("colorblind_css").href = "";
-            }
-        } else {
-            themeButton.value = "light";
-            themeButton.innerHTML =
-                '<i class="bi bi-brightness-high"></i> (Claro)';
-            themeButton.classList.add("btn-outline-dark");
-            themeButton.classList.remove("btn-dark");
-            themeButton.classList.remove("dark-to-light");
-            document.getElementById("theme").href = "./css/style.css";
-            if (document.getElementById("daltonicButton").value == "1") {
-                // claro
-                document.getElementById("colorblind_css").href =
-                    "./css/style_colorblind.css";
-            } else {
-                // oscuro
-                document.getElementById("colorblind_css").href = "";
-            }
-        }
-    });
+    function accesibility() {
+        // accessibility
+        document
+            .getElementById("themeButton")
+            .addEventListener("click", function () {
+                if (document.getElementById("themeButton").value == "light") {
+                    document.getElementById("themeButton").value = "dark";
+                    document.getElementById("themeButton").innerHTML =
+                        '<i class="bi bi-moon-fill"></i> (Oscuro)';
+                    document
+                        .getElementById("themeButton")
+                        .classList.remove("btn-outline-dark");
+                    document
+                        .getElementById("themeButton")
+                        .classList.add("btn-dark");
+                    document
+                        .getElementById("themeButton")
+                        .classList.add("dark-to-light");
+                    document.getElementById("theme").href =
+                        "./css/style_dark.css";
+                    document
+                        .getElementById("modal_content")
+                        .classList.add("modal-content-dark");
+                    if (
+                        document.getElementById("daltonicButton").value == "1"
+                    ) {
+                        // claro
+                        document.getElementById("colorblind_css").href =
+                            "./css/style_colorblind_dark.css";
+                    } else {
+                        // oscuro
+                        document.getElementById("colorblind_css").href = "";
+                    }
+                } else {
+                    document.getElementById("themeButton").value = "light";
+                    document.getElementById("themeButton").innerHTML =
+                        '<i class="bi bi-brightness-high"></i> (Claro)';
+                    document
+                        .getElementById("themeButton")
+                        .classList.add("btn-outline-dark");
+                    document
+                        .getElementById("themeButton")
+                        .classList.remove("btn-dark");
+                    document
+                        .getElementById("themeButton")
+                        .classList.remove("dark-to-light");
+                    document.getElementById("theme").href = "./css/style.css";
+                    if (
+                        document.getElementById("daltonicButton").value == "1"
+                    ) {
+                        // claro
+                        document.getElementById("colorblind_css").href =
+                            "./css/style_colorblind.css";
+                    } else {
+                        // oscuro
+                        document.getElementById("colorblind_css").href = "";
+                    }
+                }
+            });
 
-    daltonicButton.addEventListener("click", function () {
-        if (daltonicButton.value == "0") {
-            // enciende
-            daltonicButton.value = "1";
-            daltonicButton.innerHTML =
-                "<i class='bi bi-sunglasses'></i> (Encendido)";
-            document.getElementById("logo").src =
-                "./assets/img/logo/logo_colorblind.jpg";
-            if (document.getElementById("themeButton").value == "light") {
-                // claro
-                document.getElementById("colorblind_css").href =
-                    "./css/style_colorblind.css";
-            } else {
-                // oscuro
-                document.getElementById("colorblind_css").href =
-                    "./css/style_colorblind_dark.css";
-            }
-        } else {
-            // apaga
-            daltonicButton.value = "0";
-            daltonicButton.innerHTML =
-                '<i class="bi bi-eyeglasses"></i> (Apagado)';
-            document.getElementById("logo").src = "./assets/img/logo/logo.jpg";
-            document.getElementById("colorblind_css").href = "";
-        }
-    });
+        document
+            .getElementById("daltonicButton")
+            .addEventListener("click", function () {
+                if (daltonicButton.value == "0") {
+                    // enciende
+                    document.getElementById("daltonicButton").value = "1";
+                    document.getElementById("daltonicButton").innerHTML =
+                        "<i class='bi bi-sunglasses'></i> (Encendido)";
+                    document.getElementById("logo").src =
+                        "./assets/img/logo/logo_colorblind.jpg";
+                    if (
+                        document.getElementById("themeButton").value == "light"
+                    ) {
+                        // claro
+                        document.getElementById("colorblind_css").href =
+                            "./css/style_colorblind.css";
+                    } else {
+                        // oscuro
+                        document.getElementById("colorblind_css").href =
+                            "./css/style_colorblind_dark.css";
+                    }
+                } else {
+                    // apaga
+                    document.getElementById("daltonicButton").value = "0";
+                    document.getElementById("daltonicButton").innerHTML =
+                        '<i class="bi bi-eyeglasses"></i> (Apagado)';
+                    document.getElementById("logo").src =
+                        "./assets/img/logo/logo.jpg";
+                    document.getElementById("colorblind_css").href = "";
+                }
+            });
+    }
 })();

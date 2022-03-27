@@ -45,7 +45,23 @@
         document.getElementById("daltonicButton").innerHTML =
             '<i class="bi bi-eyeglasses"></i> (Apagado)';
         document.getElementById("colorblind_css").href = "";
+
+
+        var cont = document.getElementById("container");
+        function changeSizeByBtn(size) {
+          
+          // Set value of the parameter as fontSize
+          cont.style.fontSize = size;
+        }
+        function changeSizeBySlider() {
+          var slider = document.getElementById("slider");
+            
+          // Set slider value as fontSize
+          cont.style.fontSize = slider.value;
+        }
+        
         accesibility();
+
     };
 
     // Preloader

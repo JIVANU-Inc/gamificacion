@@ -1,0 +1,54 @@
+<footer class="footer footer-style-4 mt-auto">
+    <div class="copyright-wrapper">
+        <p>
+            Made with ❤️ by
+            <a
+                href="https://github.com/JIVANU-Inc"
+                target="_blank"
+                rel="noopener noreferrer"
+                >JIVANU</a
+            >
+        </p>
+    </div>
+</footer>
+
+<!-- ResponsiveVoice -->
+<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+<script>
+    let web = document.getElementById("logo").getAttribute("alt") + "\n";
+
+    let elems = document.body.innerText;
+
+    for (k in elems) {
+        web = web + elems[k];
+    }
+
+    let lectura = document.getElementById("lectura");
+
+    let lang = window.navigator.languages
+        ? window.navigator.languages[0]
+        : null;
+    lang =
+        lang ||
+        window.navigator.language ||
+        window.navigator.browserLanguage ||
+        window.navigator.userLanguage;
+    if (lang.indexOf("-") !== -1) lang = lang.split("-")[0];
+    if (lang.indexOf("_") !== -1) lang = lang.split("_")[0];
+    let say = "Bienvenido";
+    let voice = "Spanish Female";
+    switch (lang) {
+        case "es":
+            say = web;
+            voice = "Spanish Female";
+            break;
+        default:
+            say = "La lectura no está disponible en estos momentos";
+            voice = "Spanish Female";
+            break;
+    }
+
+    lectura.addEventListener("click", () => {
+        responsiveVoice.speak(web, voice);
+    });
+</script>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!--
+	Definir estructura xml
+	Se puede modificar la estructura de ejemplo como se desee
+	Se pueden eliminar o incluir elementos pero debe quedar explicada la estructura final bajo este comentario.
+-->	
+
+<quiz>
+
+	<titulos>
+		<titulo></titulo>	
+		<curso></curso>		
+		<modulo></modulo>
+		<unidad></unidad>		
+	</titulos>
+	
+	
+	<estructura>
+		
+		
+		<categoria>
+			
+			<pregunta>
+				<enunciado></enunciado>
+				<opciones>
+					<opcion></opcion>
+				</opciones>
+			</pregunta>
+			
+		</categoria>
+
+	</estructura>
+
+</quiz>

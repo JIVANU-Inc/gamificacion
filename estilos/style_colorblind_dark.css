@@ -114,3 +114,18 @@ body {
     border-color: #2321b9;
     color: #2321b9;
 }
+
+.box > a {
+    float: right;
+    margin-top: 1em;
+    text-align: center;
+    text-decoration: none;
+    background: linear-gradient(#717071, #585858);
+    border: 1px solid #707171;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.box > a:hover {
+    background: linear-gradient(#707171, #585858);
+}

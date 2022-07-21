@@ -2,6 +2,9 @@
     window.onload = () => {
         // Load the header and footer with ajax
         let ajax = new XMLHttpRequest();
+        ajax.open("GET", "views/preloader.html", false);
+        ajax.send();
+        document.getElementById("preloader").innerHTML += ajax.responseText;
         ajax.open("GET", "views/header.html", false);
         ajax.send();
         document.getElementById("header").innerHTML += ajax.responseText;

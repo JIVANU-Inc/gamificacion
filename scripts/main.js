@@ -20,7 +20,7 @@
                 document.getElementById("index").classList.add("active");
                 console.log(document.getElementById("index").classList);
                 break;
-            case "files.html":
+            case "documents.html":
                 document.getElementById("files").classList.add("active");
                 break;
             case "game.html":

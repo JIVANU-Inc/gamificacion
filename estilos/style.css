@@ -213,7 +213,7 @@ h2,
 
 h3,
 .h3 {
-    font-size: 40px;
+    font-size: 2.5rem;
     letter-spacing: 0.4px;
 }
 
@@ -225,7 +225,7 @@ h4,
 
 h5,
 .h5 {
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 h6,
@@ -270,7 +270,7 @@ h6,
 }
 
 p {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 24px;
     margin-bottom: 0px;
 }
@@ -456,7 +456,7 @@ p {
 }
 
 .header.header-6 .navbar-nav .nav-item a {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
     color: #585978;
     transition: all 0.3s ease-out 0s;

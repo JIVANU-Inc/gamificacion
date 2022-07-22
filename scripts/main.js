@@ -18,7 +18,6 @@
         switch (file) {
             case "" || "index.html":
                 document.getElementById("index").classList.add("active");
-                console.log(document.getElementById("index").classList);
                 break;
             case "documents.html":
                 document.getElementById("files").classList.add("active");
@@ -32,8 +31,10 @@
         window.setTimeout(fadeout, 300);
 
         // Accessibility
-        document.body.style.fontSize = "16px";
+        document.styleSheets[0].cssRules[0].style.fontSize = "16px";
         document.getElementById("myRange").value = "16";
+        document.getElementById("outputRange").innerHTML =
+            document.getElementById("myRange").value;
         document.getElementById("themeButton").value = "light";
         document.getElementById("themeButton").innerHTML =
             '<i class="bi bi-brightness-high"></i> (Claro)';
@@ -49,22 +50,19 @@
             '<i class="bi bi-eyeglasses"></i> (Apagado)';
         document.getElementById("colorblind_css").href = "";
 
-
         var cont = document.getElementById("container");
         function changeSizeByBtn(size) {
-          
-          // Set value of the parameter as fontSize
-          cont.style.fontSize = size;
+            // Set value of the parameter as fontSize
+            cont.style.fontSize = size;
         }
         function changeSizeBySlider() {
-          var slider = document.getElementById("slider");
-            
-          // Set slider value as fontSize
-          cont.style.fontSize = slider.value;
-        }
-        
-        accesibility();
+            var slider = document.getElementById("slider");
 
+            // Set slider value as fontSize
+            cont.style.fontSize = slider.value;
+        }
+
+        accesibility();
     };
 
     // Preloader
@@ -89,7 +87,7 @@
 
     // Accessibility
     function accesibility() {
-        // accessibility
+        // theme button
         document
             .getElementById("themeButton")
             .addEventListener("click", function () {
@@ -134,7 +132,8 @@
                     document
                         .getElementById("themeButton")
                         .classList.remove("dark-to-light");
-                    document.getElementById("theme").href = "./estilos/style.css";
+                    document.getElementById("theme").href =
+                        "./estilos/style.css";
                     if (
                         document.getElementById("daltonicButton").value == "1"
                     ) {
@@ -147,7 +146,7 @@
                     }
                 }
             });
-
+        // daltonic button
         document
             .getElementById("daltonicButton")
             .addEventListener("click", function () {
@@ -179,5 +178,12 @@
                     document.getElementById("colorblind_css").href = "";
                 }
             });
+        // font size slider
+        document.getElementById("myRange").addEventListener("input", () => {
+            document.styleSheets[0].cssRules[0].style.fontSize =
+                document.getElementById("myRange").value + "px";
+            document.getElementById("outputRange").innerHTML =
+                document.getElementById("myRange").value;
+        });
     }
 })();

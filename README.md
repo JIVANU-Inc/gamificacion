@@ -20,12 +20,11 @@ Si desea ver la implementación de nuestro proyecto, puede acceder a él si hace
 
 Integrantes de JIVANU:
 
-*   [![JuanCarlosAcostaPerba](https://img.shields.io/badge/-JuanCarlosAcostaPeraba-black?style=flat&logo=github)](https://github.com/JuanCarlosAcostaPeraba)
+* [![JuanCarlosAcostaPerba](https://img.shields.io/badge/-JuanCarlosAcostaPeraba-black?style=flat&logo=github)](https://github.com/JuanCarlosAcostaPeraba)
 
-*  [![Nuhacet66](https://img.shields.io/badge/-nuhacet66-black?style=flat&logo=github)](https://github.com/nuhacet66)
+* [![Nuhacet66](https://img.shields.io/badge/-nuhacet66-black?style=flat&logo=github)](https://github.com/nuhacet66)
 
-*  [![AlejandroVialardSantana](https://img.shields.io/badge/-AlejandroVialardSantana-black?style=flat&logo=github)](https://github.com/AlejandroVialardSantana)
-
+* [![AlejandroVialardSantana](https://img.shields.io/badge/-AlejandroVialardSantana-black?style=flat&logo=github)](https://github.com/AlejandroVialardSantana)
 
 ## Licencia 📄
 

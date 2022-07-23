@@ -1,9 +1,7 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html>
 
 <head>
-
     <!-- Metadata -->
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html; ISO-8859-1" />
@@ -42,9 +40,22 @@
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
-    <div id="preloader"></div>
-
+    <div class="preloader">
+        <div class="loader">
+            <div class="spinner">
+                <div class="spinner-container">
+                    <div class="spinner-rotator">
+                        <div class="spinner-left">
+                            <div class="spinner-circle"></div>
+                        </div>
+                        <div class="spinner-right">
+                            <div class="spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="header"></div>
 
     <!-- <section id="feature" class="feature-section feature-style-5">
@@ -127,21 +138,18 @@
     </section> -->
 
     <div id="footer" class="footer footer-style-4 mt-auto"></div>
-
     <!-- JavaScript -->
     <script charset="UTF-8" language="javascript" type="text/javascript" src="scripts/jquery-3.6.0.min.js"></script>
     <script charset="UTF-8" language="javascript" type="text/javascript" src="scripts/config.js"></script>
     <script charset="UTF-8" language="javascript" type="text/javascript" src="scripts/cextapi.js"></script>
     <script charset="UTF-8" language="javascript" type="text/javascript" src="scripts/core.js"></script>
     <script charset="UTF-8" language="javascript" type="text/javascript" src="scripts/main.js"></script>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
     <script>
-
         var ms = tiempo.getmilliseconds();
         tiempo.setMilliseconds(ms + 1000);
         var texto = rellenarCeros(tiempo.getMinutes()) + ":" + rellenarCeros(tiempo.getSeconds());

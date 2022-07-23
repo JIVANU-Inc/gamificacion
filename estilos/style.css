@@ -201,13 +201,13 @@ h6,
 
 h1,
 .h1 {
-    font-size: 80px;
+    font-size: 5rem;
     letter-spacing: 0.7px;
 }
 
 h2,
 .h2 {
-    font-size: 60px;
+    font-size: 3.75rem;
     letter-spacing: 0.7px;
 }
 
@@ -219,7 +219,7 @@ h3,
 
 h4,
 .h4 {
-    font-size: 30px;
+    font-size: 1.875rem;
     letter-spacing: 0.35px;
 }
 
@@ -230,7 +230,7 @@ h5,
 
 h6,
 .h6 {
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 
 .font-weight-bold {

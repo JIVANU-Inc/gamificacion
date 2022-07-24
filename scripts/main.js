@@ -1,5 +1,8 @@
 (function () {
     window.onload = () => {
+        if (localStorage.getItem("cookiesMessage") === null) {
+            loadCookiesMessage();
+        }
         loadHeader();
         loadFooter();
         window.setTimeout(fadeout, 300);
@@ -147,9 +150,23 @@
         });
     }
 
+    // Load cookies message with ajax request
+    async function loadCookiesMessage() {
+        const cookiesMessage = document.getElementById("cookiesMessage");
+        var cookies_message_content = await fetch(
+            "./views/cookiesMessage.html"
+        );
+        var cookies_message_content = await cookies_message_content.text();
+        cookiesMessage.innerHTML = cookies_message_content;
+        document.getElementById("close").addEventListener("click", () => {
+            document.getElementById("cookiesMessage").style.display = "none";
+            localStorage.setItem("cookiesMessage", "true");
+        });
+    }
+
     // Load header with ajax request
     async function loadHeader() {
-        let header = document.getElementById("header");
+        const header = document.getElementById("header");
         var header_content = await fetch("./views/header.html");
         var header_content = await header_content.text();
         header.innerHTML = header_content;
@@ -173,7 +190,7 @@
 
     // Load footer with ajax request
     async function loadFooter() {
-        let footer = document.getElementById("footer");
+        const footer = document.getElementById("footer");
         var footer_content = await fetch("./views/footer.html");
         var footer_content = await footer_content.text();
         footer.innerHTML = footer_content;

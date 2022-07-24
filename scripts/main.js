@@ -1,68 +1,11 @@
 (function () {
     window.onload = () => {
-        // Load the header and footer with ajax
-        let ajax = new XMLHttpRequest();
-        ajax.open("GET", "views/preloader.html", false);
-        ajax.send();
-        document.getElementById("preloader").innerHTML += ajax.responseText;
-        ajax.open("GET", "views/header.html", false);
-        ajax.send();
-        document.getElementById("header").innerHTML += ajax.responseText;
-        ajax.open("GET", "views/footer.html", false);
-        ajax.send();
-        document.getElementById("footer").innerHTML += ajax.responseText;
-
-        // Navbar active class management
-        let url = window.location.href;
-        let file = url.split("/")[url.split("/").length - 1];
-        switch (file) {
-            case "" || "index.html":
-                document.getElementById("index").classList.add("active");
-                break;
-            case "documents.html":
-                document.getElementById("files").classList.add("active");
-                break;
-            case "game.html":
-                document.getElementById("game").classList.add("active");
-                break;
+        if (localStorage.getItem("cookiesMessage") === null) {
+            loadCookiesMessage();
         }
-
-        // Preloader
+        loadHeader();
+        loadFooter();
         window.setTimeout(fadeout, 300);
-
-        // Accessibility
-        document.styleSheets[0].cssRules[0].style.fontSize = "16px";
-        document.getElementById("myRange").value = "16";
-        document.getElementById("outputRange").innerHTML =
-            document.getElementById("myRange").value;
-        document.getElementById("themeButton").value = "light";
-        document.getElementById("themeButton").innerHTML =
-            '<i class="bi bi-brightness-high"></i> (Claro)';
-        document
-            .getElementById("themeButton")
-            .classList.add("btn-outline-dark");
-        document.getElementById("themeButton").classList.remove("btn-dark");
-        document
-            .getElementById("themeButton")
-            .classList.remove("dark-to-light");
-        document.getElementById("daltonicButton").value = "0";
-        document.getElementById("daltonicButton").innerHTML =
-            '<i class="bi bi-eyeglasses"></i> (Apagado)';
-        document.getElementById("colorblind_css").href = "";
-
-        var cont = document.getElementById("container");
-        function changeSizeByBtn(size) {
-            // Set value of the parameter as fontSize
-            cont.style.fontSize = size;
-        }
-        function changeSizeBySlider() {
-            var slider = document.getElementById("slider");
-
-            // Set slider value as fontSize
-            cont.style.fontSize = slider.value;
-        }
-
-        accesibility();
     };
 
     // Preloader
@@ -87,6 +30,26 @@
 
     // Accessibility
     function accesibility() {
+        document.styleSheets[0].cssRules[0].style.fontSize = "16px";
+        document.getElementById("outputRange").innerHTML =
+            document.getElementById("myRange").value;
+        document.getElementById("myRange").value = "16";
+        document.getElementById("outputRange").innerHTML =
+            document.getElementById("myRange").value;
+        document.getElementById("themeButton").value = "light";
+        document.getElementById("themeButton").innerHTML =
+            '<i class="bi bi-brightness-high"></i> (Claro)';
+        document
+            .getElementById("themeButton")
+            .classList.add("btn-outline-dark");
+        document.getElementById("themeButton").classList.remove("btn-dark");
+        document
+            .getElementById("themeButton")
+            .classList.remove("dark-to-light");
+        document.getElementById("daltonicButton").value = "0";
+        document.getElementById("daltonicButton").innerHTML =
+            '<i class="bi bi-eyeglasses"></i> (Apagado)';
+        document.getElementById("colorblind_css").href = "";
         // theme button
         document
             .getElementById("themeButton")
@@ -185,5 +148,51 @@
             document.getElementById("outputRange").innerHTML =
                 document.getElementById("myRange").value;
         });
+    }
+
+    // Load cookies message with ajax request
+    async function loadCookiesMessage() {
+        const cookiesMessage = document.getElementById("cookiesMessage");
+        var cookies_message_content = await fetch(
+            "./views/cookiesMessage.html"
+        );
+        var cookies_message_content = await cookies_message_content.text();
+        cookiesMessage.innerHTML = cookies_message_content;
+        document.getElementById("close").addEventListener("click", () => {
+            document.getElementById("cookiesMessage").style.display = "none";
+            localStorage.setItem("cookiesMessage", "true");
+        });
+    }
+
+    // Load header with ajax request
+    async function loadHeader() {
+        const header = document.getElementById("header");
+        var header_content = await fetch("./views/header.html");
+        var header_content = await header_content.text();
+        header.innerHTML = header_content;
+
+        // Navbar active class management
+        let url = window.location.href;
+        let file = url.split("/")[url.split("/").length - 1];
+        switch (file) {
+            case "" || "index.html":
+                document.getElementById("index").classList.add("active");
+                break;
+            case "documents.html":
+                document.getElementById("files").classList.add("active");
+                break;
+            case "game.html":
+                document.getElementById("game").classList.add("active");
+                break;
+        }
+        accesibility();
+    }
+
+    // Load footer with ajax request
+    async function loadFooter() {
+        const footer = document.getElementById("footer");
+        var footer_content = await fetch("./views/footer.html");
+        var footer_content = await footer_content.text();
+        footer.innerHTML = footer_content;
     }
 })();

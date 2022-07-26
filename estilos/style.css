@@ -667,11 +667,13 @@ p {
     }
 }
 
-@media (min-width: 280px) {
+@media (max-width: 350px) {
     .navbar-brand img{
         width: 100px;
     }
+}
 
+@media (min-width: 280px) {
     .header-action {
         margin-right: -22px;
     }

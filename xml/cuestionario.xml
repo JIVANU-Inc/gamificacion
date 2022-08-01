@@ -1,33 +1,33 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <!--
 	Definir estructura xml
 	Se puede modificar la estructura de ejemplo como se desee
 	Se pueden eliminar o incluir elementos pero debe quedar explicada la estructura final bajo este comentario.
--->	
+-->
 
 <quiz>
 
 	<titulos>
-		<titulo></titulo>	
-		<curso></curso>		
+		<titulo></titulo>
+		<curso></curso>
 		<modulo></modulo>
-		<unidad></unidad>		
+		<unidad></unidad>
 	</titulos>
-	
-	
+
+
 	<estructura>
-		
-		
+
+
 		<categoria>
-			
+
 			<pregunta>
 				<enunciado>¿Cubre el seguro de hogar las lesiones de mi gato al caer por la ventana?</enunciado>
 				<opciones>
-					<opcion select="boolean('false')">Si, garantía contratada Daños Materiales</opcion>
-					<opcion select="boolean('true')">Si, garantía contratada ,Animales de Compañía.</opcion>
+					<opcion select="boolean('false')">Si, garantía contratada (Daños Materiales)</opcion>
+					<opcion select="boolean('true')">Si, garantía contratada (Animales de Compañía)</opcion>
 					<opcion select="boolean('false')">No, en ningún caso</opcion>
-					<opcion select="boolean('false')">Si, garantía contratada, Responsabilidad Civil</opcion>
+					<opcion select="boolean('false')">Si, garantía contratada (Responsabilidad Civil)</opcion>
 				</opciones>
 			</pregunta>
 

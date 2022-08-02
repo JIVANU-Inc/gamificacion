@@ -8,206 +8,197 @@
 
 <quiz>
 
-	<titulos>
-		<titulo></titulo>
-		<curso></curso>
-		<modulo></modulo>
-		<unidad></unidad>
-	</titulos>
-
-
 	<estructura>
-
 
 		<categoria>
 
 			<pregunta>
 				<enunciado>¿Cubre el seguro de hogar las lesiones de mi gato al caer por la ventana?</enunciado>
 				<opciones>
-					<opcion select="boolean('false')">Si, garantía contratada (Daños Materiales)</opcion>
-					<opcion select="boolean('true')">Si, garantía contratada (Animales de Compañía)</opcion>
-					<opcion select="boolean('false')">No, en ningún caso</opcion>
-					<opcion select="boolean('false')">Si, garantía contratada (Responsabilidad Civil)</opcion>
+					<opcion select="false">Si, garantía contratada (Daños Materiales)</opcion>
+					<opcion select="true">Si, garantía contratada (Animales de Compañía)</opcion>
+					<opcion select="false">No, en ningún caso</opcion>
+					<opcion select="false">Si, garantía contratada (Responsabilidad Civil)</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>Me insulta mi vecina ¿puedo querellarme contra ella usando el seguro de hogar?</enunciado>
 				<opciones>
-					<opcion select="boolean('true')">Si, con la defensa penal. Art. 13 CCGG.</opcion>
-					<opcion select="boolean('false')">Si, con la defensa civil que otorgan las CCGG de la póliza</opcion>
-					<opcion select="boolean('false')">No, en ningún caso.</opcion>
-					<opcion select="boolean('false')">Solo en caso de que haya provocado tambien daños materiales</opcion>
+					<opcion select="true">Si, con la defensa penal. Art. 13 CCGG.</opcion>
+					<opcion select="false">Si, con la defensa civil que otorgan las CCGG de la póliza</opcion>
+					<opcion select="false">No, en ningún caso.</opcion>
+					<opcion select="false">Solo en caso de que haya provocado tambien daños materiales</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>A mi esposa le sustrajeron el abrigo de piel en la ópera ¿cuanto paga el seguro de hogar?</enunciado>
 				<opciones>
-					<opcion select="boolean('false')">La suma asegurada contratada por robo en el exterior</opcion>
-					<opcion select="boolean('true')">Nada. Excluidas pieles del hurto. Art. 6 CCGG</opcion>
-					<opcion select="boolean('false')">La suma asegurada contratada para hurto</opcion>
-					<opcion select="boolean('false')">El valor del bien sustraido hasta el limite de la suma asegurada</opcion>
+					<opcion select="false">La suma asegurada contratada por robo en el exterior</opcion>
+					<opcion select="true">Nada. Excluidas pieles del hurto. Art. 6 CCGG</opcion>
+					<opcion select="false">La suma asegurada contratada para hurto</opcion>
+					<opcion select="false">El valor del bien sustraido hasta el limite de la suma asegurada</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>¿Se cubre un profesor particular por accidente en el hogar del hijo que estudia?</enunciado>
 				<opciones>
-					<opcion select="boolean('false')">Si, artículo 13 CCGG Hogar</opcion>
-					<opcion select="boolean('true')">Si, artículo 11.3.1 CCGG Hogar.</opcion>
-					<opcion select="boolean('false')">No, en ningún caso</opcion>
-					<opcion select="boolean('false')">Solo si he incluido a mis hijos como asegurados en la póliza</opcion>
+					<opcion select="false">Si, artículo 13 CCGG Hogar</opcion>
+					<opcion select="true">Si, artículo 11.3.1 CCGG Hogar.</opcion>
+					<opcion select="false">No, en ningún caso</opcion>
+					<opcion select="false">Solo si he incluido a mis hijos como asegurados en la póliza</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>¿Mi seguro de hogar cubre daños a bienes de uso profesional?</enunciado>
 				<opciones>
-					<opcion select="boolean('false')">Si, hasta un 50% de la suma asegurada para mobiliario.</opcion>
-					<opcion select="boolean('true')">Si, hasta un 25% de la suma asegurada para mobiliario.</opcion>
-					<opcion select="boolean('false')">No, están expresamente excluidos. Art. 5.1.</opcion>
-					<opcion select="boolean('false')">Unicamente si he contratado la garantía de robo.</opcion>
+					<opcion select="false">Si, hasta un 50% de la suma asegurada para mobiliario.</opcion>
+					<opcion select="true">Si, hasta un 25% de la suma asegurada para mobiliario.</opcion>
+					<opcion select="false">No, están expresamente excluidos. Art. 5.1.</opcion>
+					<opcion select="false">Unicamente si he contratado la garantía de robo.</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>En el seguro de hogar, diga límite de indemnización por sacrificio del animal de compañía debido a vejez</enunciado>
 				<opciones>
-					<opcion select="boolean('true')">155 Euros</opcion>
-					<opcion select="boolean('false')">El valor del animal tasado por perito veterinario</opcion>
-					<opcion select="boolean('false')">No se indemniza</opcion>
-					<opcion select="boolean('false')">300 Euros</opcion>
+					<opcion select="true">155 Euros</opcion>
+					<opcion select="false">El valor del animal tasado por perito veterinario</opcion>
+					<opcion select="false">No se indemniza</opcion>
+					<opcion select="false">300 Euros</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>El DVD de mi boda ya no se ve ¿puedo pedir que lo arreglen por asistencia informática en el hogar?</enunciado>
 				<opciones>
-					<opcion select="boolean('false')">Solo si está en formato CD</opcion>
-					<opcion select="boolean('false')">Si, en todo caso.</opcion>
-					<opcion select="boolean('true')">No, los archivos en DVD y CD están excluidos.</opcion>
-					<opcion select="boolean('false')">Solo si la reparación no supera la suma asegurada de Todo Riesgo.</opcion>
+					<opcion select="false">Solo si está en formato CD</opcion>
+					<opcion select="false">Si, en todo caso.</opcion>
+					<opcion select="true">No, los archivos en DVD y CD están excluidos.</opcion>
+					<opcion select="false">Solo si la reparación no supera la suma asegurada de Todo Riesgo.</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>Han usado fraudulentamente mi tarjeta de El Corte Inglés ¿me cubre mi seguro de hogar?</enunciado>
 				<opciones>
-					<opcion select="boolean('false')">Si, hasta un límite de 305 € por siniestro. </opcion>
-					<opcion select="boolean('true')">Si, hasta un límite de 605 € por siniestro. </opcion>
-					<opcion select="boolean('false')">Si, hasta un límite de 1500 € por siniestro. </opcion>
-					<opcion select="boolean('false')">No, en ningun caso.</opcion>
+					<opcion select="false">Si, hasta un límite de 305 € por siniestro. </opcion>
+					<opcion select="true">Si, hasta un límite de 605 € por siniestro. </opcion>
+					<opcion select="false">Si, hasta un límite de 1500 € por siniestro. </opcion>
+					<opcion select="false">No, en ningun caso.</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>En el seguro de Hogar ¿Cuál es el plazo máximo en que estan amparados mis bienes si estoy de viaje?</enunciado>
 				<opciones>
-					<opcion select="boolean('true')">Tres meses</opcion>
-					<opcion select="boolean('false')">Dos meses</opcion>
-					<opcion select="boolean('false')">Un mes</opcion>
-					<opcion select="boolean('false')">15 días</opcion>
+					<opcion select="true">Tres meses</opcion>
+					<opcion select="false">Dos meses</opcion>
+					<opcion select="false">Un mes</opcion>
+					<opcion select="false">15 días</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>Si se extravían las llaves de mi domicilio, ¿el seguro de hogar lo cubre?</enunciado>
 				<opciones>
-					<opcion select="boolean('false')">No se cubre el cambio de cerradura en ningún caso</opcion>
-					<opcion select="boolean('false')">No se cubre el cambio de cerradura salvo en caso de robo.</opcion>
-					<opcion select="boolean('true')">Está cubierta la sustitución total o parcial de cerraduras y puertas de acceso</opcion>
-					<opcion select="boolean('false')">Esta cubierta la sustitución de la puerta por acto vandalico, pero no la de la cerradura.</opcion>
+					<opcion select="false">No se cubre el cambio de cerradura en ningún caso</opcion>
+					<opcion select="false">No se cubre el cambio de cerradura salvo en caso de robo.</opcion>
+					<opcion select="true">Está cubierta la sustitución total o parcial de cerraduras y puertas de acceso</opcion>
+					<opcion select="false">Esta cubierta la sustitución de la puerta por acto vandalico, pero no la de la cerradura.</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>Si el hijo del asegurado entrega las llaves del riesgo a los ladrones, a cambio de droga…</enunciado>
 				<opciones>
-					<opcion select="boolean('true')">Se considerará que concurre negligencia grave del asegurado y se excluirá el siniestro</opcion>
-					<opcion select="boolean('false')">El asegurador está obligado a indemnizar en todo caso</opcion>
-					<opcion select="boolean('false')">El asegurador, tras indemnizar, puede repetir contra el hijo por negligencia grave.</opcion>
-					<opcion select="boolean('false')">Ninguna de las respuestas anteriores es correcta.</opcion>
+					<opcion select="true">Se considerará que concurre negligencia grave del asegurado y se excluirá el siniestro</opcion>
+					<opcion select="false">El asegurador está obligado a indemnizar en todo caso</opcion>
+					<opcion select="false">El asegurador, tras indemnizar, puede repetir contra el hijo por negligencia grave.</opcion>
+					<opcion select="false">Ninguna de las respuestas anteriores es correcta.</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>El asegurador ¿está obligado a indemnizar un incendio provocado?</enunciado>
 				<opciones>
-					<opcion select="boolean('false')">Si, el incendio se indemnizará en todo caso.</opcion>
-					<opcion select="boolean('false')">En ningún caso</opcion>
-					<opcion select="boolean('false')">No, salvo pacto en contrario.</opcion>
-					<opcion select="boolean('true')">Si, salvo que el autor sea el asegurado.</opcion>
+					<opcion select="false">Si, el incendio se indemnizará en todo caso.</opcion>
+					<opcion select="false">En ningún caso</opcion>
+					<opcion select="false">No, salvo pacto en contrario.</opcion>
+					<opcion select="true">Si, salvo que el autor sea el asegurado.</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>Los daños que causa un "okupa" ¿se cubren por actos vandálicos?</enunciado>
 				<opciones>
-					<opcion select="boolean('false')">Si, en todo caso, al tratarse de actos vándalicos.</opcion>
-					<opcion select="boolean('false')">Unicamente si he contratado la garantía de robo.</opcion>
-					<opcion select="boolean('false')">Unicamente si tengo contratada la garantía de Daños Materiales</opcion>
-					<opcion select="boolean('true')">No, están expresamente excluidos. Art. 5.1.</opcion>
+					<opcion select="false">Si, en todo caso, al tratarse de actos vándalicos.</opcion>
+					<opcion select="false">Unicamente si he contratado la garantía de robo.</opcion>
+					<opcion select="false">Unicamente si tengo contratada la garantía de Daños Materiales</opcion>
+					<opcion select="true">No, están expresamente excluidos. Art. 5.1.</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>Diga dos animales exóticos que pueden asegurarse en MAPFRE</enunciado>
 				<opciones>
-					<opcion select="boolean('false')">Tigres y Leones</opcion>
-					<opcion select="boolean('false')">Tortugas y anacondas</opcion>
-					<opcion select="boolean('true')">Lagartos y serpientes</opcion>
-					<opcion select="boolean('false')">No se aseguran</opcion>
+					<opcion select="false">Tigres y Leones</opcion>
+					<opcion select="false">Tortugas y anacondas</opcion>
+					<opcion select="true">Lagartos y serpientes</opcion>
+					<opcion select="false">No se aseguran</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>En el seguro de Hogar, ¿cual es el límite del préstamo sin interés que te dan por asistencia en viaje?</enunciado>
 				<opciones>
-					<opcion select="boolean('true')">905 € o su equivalente en moneda local. </opcion>
-					<opcion select="boolean('false')">1505 €</opcion>
-					<opcion select="boolean('false')">No existe esta cobertura</opcion>
-					<opcion select="boolean('false')">Ninguna de las respuestas anteriores es correcta.</opcion>
+					<opcion select="true">905 € o su equivalente en moneda local. </opcion>
+					<opcion select="false">1505 €</opcion>
+					<opcion select="false">No existe esta cobertura</opcion>
+					<opcion select="false">Ninguna de las respuestas anteriores es correcta.</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>¿Cual es el horario previsto en póliza para el servicio de bricolaje en el hogar?</enunciado>
 				<opciones>
-					<opcion select="boolean('true')">de lunes a viernes, de 9 a 19 horas.</opcion>
-					<opcion select="boolean('false')">24 horas los 365 días del año</opcion>
-					<opcion select="boolean('false')">de lunes a sábado, de 10 a 21 horas</opcion>
-					<opcion select="boolean('false')">Ninguna de las respuestas anteriores es correcta.</opcion>
+					<opcion select="true">de lunes a viernes, de 9 a 19 horas.</opcion>
+					<opcion select="false">24 horas los 365 días del año</opcion>
+					<opcion select="false">de lunes a sábado, de 10 a 21 horas</opcion>
+					<opcion select="false">Ninguna de las respuestas anteriores es correcta.</opcion>
 				</opciones>
 			</pregunta>
 			<pregunta>
 
 				<enunciado>Si se me rompen las gafas en mi casa, ¿el seguro lo cubre?</enunciado>
 				<opciones>
-					<opcion select="boolean('true')">No, la rotura de lentes y sus monturas está excluido según el art.5.4</opcion>
-					<opcion select="boolean('false')">Si, en todo caso.</opcion>
-					<opcion select="boolean('false')">Si, hasta un límite de 1500 € por siniestro. </opcion>
-					<opcion select="boolean('false')">Sólo con prescripción oftalmológica</opcion>
+					<opcion select="true">No, la rotura de lentes y sus monturas está excluido según el art.5.4</opcion>
+					<opcion select="false">Si, en todo caso.</opcion>
+					<opcion select="false">Si, hasta un límite de 1500 € por siniestro. </opcion>
+					<opcion select="false">Sólo con prescripción oftalmológica</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>En el seguro de hogar, para la valoración de la vivienda ¿tenemos en cuenta el valor del solar?</enunciado>
 				<opciones>
-					<opcion select="boolean('true')">No, solo el coste de su reparación o reconstrucción. </opcion>
-					<opcion select="boolean('false')">Si, en todo caso.</opcion>
-					<opcion select="boolean('false')">Hasta el límite de la suma asegurada del solar</opcion>
-					<opcion select="boolean('false')">El solar es inasegurable.</opcion>
+					<opcion select="true">No, solo el coste de su reparación o reconstrucción. </opcion>
+					<opcion select="false">Si, en todo caso.</opcion>
+					<opcion select="false">Hasta el límite de la suma asegurada del solar</opcion>
+					<opcion select="false">El solar es inasegurable.</opcion>
 				</opciones>
 			</pregunta>
 
 			<pregunta>
 				<enunciado>¿Cuál es el límite de indemnización para bienes de terceros que no convivan en la vivienda asegurada? </enunciado>
 				<opciones>
-					<opcion select="boolean('true')">1505€</opcion>
-					<opcion select="boolean('false')">3000 €</opcion>
-					<opcion select="boolean('false')">No se cubren bienes de terceros ajenos al asegurado en la póliza de hogar</opcion>
-					<opcion select="boolean('false')">Ninguna de las respuestas anteriores es correcta.</opcion>
+					<opcion select="true">1505€</opcion>
+					<opcion select="false">3000 €</opcion>
+					<opcion select="false">No se cubren bienes de terceros ajenos al asegurado en la póliza de hogar</opcion>
+					<opcion select="false">Ninguna de las respuestas anteriores es correcta.</opcion>
 				</opciones>
 			</pregunta>
 		</categoria>

@@ -1,18 +1,16 @@
 $(document).ready(function () {
+    // Pedimos por ajax
     $.ajax({
         type: "GET",
         url: "./xml/cuestionario.xml",
         dataType: "xml",
         success: function (xml) {
-            $(xml)
-                .find("enunciado")
-                .each(function () {
+            $(xml).find("enunciado").each(function () {
+
                     let res = [];
                     var enunciado = $(this).text();
-                    var respuesta = $(this)
-                        .next()
-                        .find("opcion")
-                        .each(function () {
+
+                    var respuesta = $(this).next().find("opcion").each(function () {
                             var opcion = $(this).text();
                             var correcta = $(this).attr("select");
                             var respuesta = {
@@ -21,6 +19,7 @@ $(document).ready(function () {
                             };
                             res.push(respuesta);
                         });
+
                     $("#questions").append(
                         "<li>" +
                             enunciado +

@@ -31,6 +31,7 @@
     // Accessibility
     function accesibility() {
         // Elementos del DOM
+       
         const rangeInput = document.getElementById("myRange");
         const rangeOutput = document.getElementById("outputRange");
         const themeButtonInput = document.getElementById("themeButton");
@@ -51,7 +52,32 @@
             document.getElementById("colorblind_css").href = "";
             localStorage.setItem("accessibility", "16;light;0");
         } else { // Existe la cookie de accesibility en el LocalStorage
-
+            let CookiesInfo = [];
+            CookiesInfo = localStorage.getItem("accessibility").split(";");
+            rangeInput.value = CookiesInfo[0];
+            rangeOutput.innerHTML = CookiesInfo[0];
+            themeButtonInput.value = CookiesInfo[1];
+            if (CookiesInfo[1] === "light") {
+                themeButtonInput.innerHTML = '<i class="bi bi-brightness-high"></i> (Claro)';
+                themeButtonInput.classList.add("btn-outline-dark");
+                themeButtonInput.classList.remove("btn-dark");
+                themeButtonInput.classList.remove("dark-to-light");
+            }
+            if (CookiesInfo[1] === "dark") {
+                themeButtonInput.innerHTML = '<i class="bi bi-brightness-high"></i> (Oscuro)';
+                themeButtonInput.classList.add("btn-dark");
+                themeButtonInput.classList.remove("btn-outline-dark");
+                themeButtonInput.classList.remove("light-to-dark");
+            }
+            daltonicButtonInput.value = CookiesInfo[2];
+            if (CookiesInfo[2] === "0") {
+                daltonicButtonInput.innerHTML = '<i class="bi bi-eyeglasses"></i> (Apagado)';
+                document.getElementById("colorblind_css").href = "";
+            }
+            if (CookiesInfo[2] === "1") {
+                daltonicButtonInput.innerHTML = '<i class="bi bi-eyeglasses"></i> (Encendido)';
+                document.getElementById("colorblind_css").href = "css/colorblind.css";
+            }
         }
 
         // theme button
@@ -192,4 +218,17 @@
         var footer_content = await footer_content.text();
         footer.innerHTML = footer_content;
     }
+
+    const CrearItem = (actividad) => {
+
+        let item = {
+          actividad: actividad,
+          estado: false
+        }
+      
+        CookiesInfo.push(item);
+      
+        return item;
+      
+      }
 })();

@@ -174,8 +174,11 @@
         // Navbar active class management
         let url = window.location.href;
         let file = url.split("/")[url.split("/").length - 1];
+        if (file == "") {
+            file = "index.html";
+        }
         switch (file) {
-            case "" || "index.html":
+            case "index.html":
                 document.getElementById("index").classList.add("active");
                 break;
             case "documents.html":

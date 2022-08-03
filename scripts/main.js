@@ -30,123 +30,117 @@
 
     // Accessibility
     function accesibility() {
-        document.styleSheets[0].cssRules[0].style.fontSize = "16px";
-        document.getElementById("outputRange").innerHTML =
-            document.getElementById("myRange").value;
-        document.getElementById("myRange").value = "16";
-        document.getElementById("outputRange").innerHTML =
-            document.getElementById("myRange").value;
-        document.getElementById("themeButton").value = "light";
-        document.getElementById("themeButton").innerHTML =
-            '<i class="bi bi-brightness-high"></i> (Claro)';
-        document
-            .getElementById("themeButton")
-            .classList.add("btn-outline-dark");
-        document.getElementById("themeButton").classList.remove("btn-dark");
-        document
-            .getElementById("themeButton")
-            .classList.remove("dark-to-light");
-        document.getElementById("daltonicButton").value = "0";
-        document.getElementById("daltonicButton").innerHTML =
-            '<i class="bi bi-eyeglasses"></i> (Apagado)';
-        document.getElementById("colorblind_css").href = "";
+        // Elementos del DOM
+        const rangeInput = document.getElementById("myRange");
+        const rangeOutput = document.getElementById("outputRange");
+        const themeButtonInput = document.getElementById("themeButton");
+        const daltonicButtonInput = document.getElementById("daltonicButton");
+
+        // No existe la cookie de accesibility en el LocalStorage
+        if (localStorage.getItem("accessibility") === null) {
+            // Valores por defecto: fontSize = 16px | theme = light | daltonic = 0 (off)
+            rangeInput.value = "16";
+            rangeOutput.innerHTML = rangeInput.value;
+            themeButtonInput.value = "light";
+            themeButtonInput.innerHTML = '<i class="bi bi-brightness-high"></i> (Claro)';
+            themeButtonInput.classList.add("btn-outline-dark");
+            themeButtonInput.classList.remove("btn-dark");
+            themeButtonInput.classList.remove("dark-to-light");
+            daltonicButtonInput.value = "0";
+            daltonicButtonInput.innerHTML = '<i class="bi bi-eyeglasses"></i> (Apagado)';
+            document.getElementById("colorblind_css").href = "";
+            localStorage.setItem("accessibility", "16;light;0");
+        } else { // Existe la cookie de accesibility en el LocalStorage
+
+        }
+
         // theme button
-        document
-            .getElementById("themeButton")
-            .addEventListener("click", function () {
-                if (document.getElementById("themeButton").value == "light") {
-                    document.getElementById("themeButton").value = "dark";
-                    document.getElementById("themeButton").innerHTML =
-                        '<i class="bi bi-moon-fill"></i> (Oscuro)';
-                    document
-                        .getElementById("themeButton")
-                        .classList.remove("btn-outline-dark");
-                    document
-                        .getElementById("themeButton")
-                        .classList.add("btn-dark");
-                    document
-                        .getElementById("themeButton")
-                        .classList.add("dark-to-light");
-                    document.getElementById("theme").href =
-                        "./estilos/style_dark.css";
-                    document
-                        .getElementById("modal_content")
-                        .classList.add("modal-content-dark");
-                    if (
-                        document.getElementById("daltonicButton").value == "1"
-                    ) {
-                        // claro
-                        document.getElementById("colorblind_css").href =
-                            "./estilos/style_colorblind_dark.css";
-                    } else {
-                        // oscuro
-                        document.getElementById("colorblind_css").href = "";
-                    }
+        themeButtonInput.addEventListener("click", function () {
+            if (themeButtonInput.value == "light") {
+                themeButtonInput.value = "dark";
+                themeButtonInput.innerHTML =
+                    '<i class="bi bi-moon-fill"></i> (Oscuro)';
+                themeButtonInput.classList.remove("btn-outline-dark");
+                themeButtonInput.classList.add("btn-dark");
+                themeButtonInput.classList.add("dark-to-light");
+                document.getElementById("theme").href =
+                    "./estilos/style_dark.css";
+                document
+                    .getElementById("modal_content")
+                    .classList.add("modal-content-dark");
+                if (
+                    daltonicButtonInput.value == "1"
+                ) {
+                    // claro
+                    document.getElementById("colorblind_css").href =
+                        "./estilos/style_colorblind_dark.css";
                 } else {
-                    document.getElementById("themeButton").value = "light";
-                    document.getElementById("themeButton").innerHTML =
-                        '<i class="bi bi-brightness-high"></i> (Claro)';
-                    document
-                        .getElementById("themeButton")
-                        .classList.add("btn-outline-dark");
-                    document
-                        .getElementById("themeButton")
-                        .classList.remove("btn-dark");
-                    document
-                        .getElementById("themeButton")
-                        .classList.remove("dark-to-light");
-                    document.getElementById("theme").href =
-                        "./estilos/style.css";
-                    if (
-                        document.getElementById("daltonicButton").value == "1"
-                    ) {
-                        // claro
-                        document.getElementById("colorblind_css").href =
-                            "./estilos/style_colorblind.css";
-                    } else {
-                        // oscuro
-                        document.getElementById("colorblind_css").href = "";
-                    }
-                }
-            });
-        // daltonic button
-        document
-            .getElementById("daltonicButton")
-            .addEventListener("click", function () {
-                if (daltonicButton.value == "0") {
-                    // enciende
-                    document.getElementById("daltonicButton").value = "1";
-                    document.getElementById("daltonicButton").innerHTML =
-                        "<i class='bi bi-sunglasses'></i> (Encendido)";
-                    document.getElementById("logo").src =
-                        "./media/imagenes/logo_colorblind.jpg";
-                    if (
-                        document.getElementById("themeButton").value == "light"
-                    ) {
-                        // claro
-                        document.getElementById("colorblind_css").href =
-                            "./estilos/style_colorblind.css";
-                    } else {
-                        // oscuro
-                        document.getElementById("colorblind_css").href =
-                            "./estilos/style_colorblind_dark.css";
-                    }
-                } else {
-                    // apaga
-                    document.getElementById("daltonicButton").value = "0";
-                    document.getElementById("daltonicButton").innerHTML =
-                        '<i class="bi bi-eyeglasses"></i> (Apagado)';
-                    document.getElementById("logo").src =
-                        "./media/imagenes/logo.jpg";
+                    // oscuro
                     document.getElementById("colorblind_css").href = "";
                 }
-            });
+            } else {
+                document.getElementById("themeButton").value = "light";
+                document.getElementById("themeButton").innerHTML =
+                    '<i class="bi bi-brightness-high"></i> (Claro)';
+                document
+                    .getElementById("themeButton")
+                    .classList.add("btn-outline-dark");
+                document
+                    .getElementById("themeButton")
+                    .classList.remove("btn-dark");
+                document
+                    .getElementById("themeButton")
+                    .classList.remove("dark-to-light");
+                document.getElementById("theme").href =
+                    "./estilos/style.css";
+                if (
+                    daltonicButtonInput.value == "1"
+                ) {
+                    // claro
+                    document.getElementById("colorblind_css").href =
+                        "./estilos/style_colorblind.css";
+                } else {
+                    // oscuro
+                    document.getElementById("colorblind_css").href = "";
+                }
+            }
+        });
+        // daltonic button
+        daltonicButtonInput.addEventListener("click", function () {
+            if (daltonicButton.value == "0") {
+                // enciende
+                daltonicButtonInput.value = "1";
+                daltonicButtonInput.innerHTML =
+                    "<i class='bi bi-sunglasses'></i> (Encendido)";
+                document.getElementById("logo").src =
+                    "./media/imagenes/logo_colorblind.jpg";
+                if (
+                    document.getElementById("themeButton").value == "light"
+                ) {
+                    // claro
+                    document.getElementById("colorblind_css").href =
+                        "./estilos/style_colorblind.css";
+                } else {
+                    // oscuro
+                    document.getElementById("colorblind_css").href =
+                        "./estilos/style_colorblind_dark.css";
+                }
+            } else {
+                // apaga
+                daltonicButtonInput.value = "0";
+                daltonicButtonInput.innerHTML =
+                    '<i class="bi bi-eyeglasses"></i> (Apagado)';
+                document.getElementById("logo").src =
+                    "./media/imagenes/logo.jpg";
+                document.getElementById("colorblind_css").href = "";
+            }
+        });
         // font size slider
-        document.getElementById("myRange").addEventListener("input", () => {
+        rangeInput.addEventListener("input", () => {
             document.styleSheets[0].cssRules[0].style.fontSize =
-                document.getElementById("myRange").value + "px";
+                rangeInput.value + "px";
             document.getElementById("outputRange").innerHTML =
-                document.getElementById("myRange").value;
+                rangeInput.value;
         });
     }
 

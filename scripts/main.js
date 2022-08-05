@@ -31,15 +31,19 @@
     // Accessibility
     function accesibility() {
         // Elementos del DOM
-       
         const rangeInput = document.getElementById("myRange");
         const rangeOutput = document.getElementById("outputRange");
         const themeButtonInput = document.getElementById("themeButton");
         const daltonicButtonInput = document.getElementById("daltonicButton");
+        const colorblind_css = document.getElementById("colorblind_css");
+        const theme = document.getElementById("theme");
+        const logo = document.getElementById("logo");
+        const modal_content = document.getElementById("modal_content");
 
         // No existe la cookie de accesibility en el LocalStorage
         if (localStorage.getItem("accessibility") === null) {
             // Valores por defecto: fontSize = 16px | theme = light | daltonic = 0 (off)
+            document.styleSheets[0].cssRules[0].style.fontSize = "16px";
             rangeInput.value = "16";
             rangeOutput.innerHTML = rangeInput.value;
             themeButtonInput.value = "light";
@@ -49,126 +53,118 @@
             themeButtonInput.classList.remove("dark-to-light");
             daltonicButtonInput.value = "0";
             daltonicButtonInput.innerHTML = '<i class="bi bi-eyeglasses"></i> (Apagado)';
-            document.getElementById("colorblind_css").href = "";
+            colorblind_css.href = "";
             localStorage.setItem("accessibility", "16;light;0");
         } else { // Existe la cookie de accesibility en el LocalStorage
-            let CookiesInfo = [];
-            CookiesInfo = localStorage.getItem("accessibility").split(";");
-            rangeInput.value = CookiesInfo[0];
-            rangeOutput.innerHTML = CookiesInfo[0];
-            themeButtonInput.value = CookiesInfo[1];
-            if (CookiesInfo[1] === "light") {
-                themeButtonInput.innerHTML = '<i class="bi bi-brightness-high"></i> (Claro)';
-                themeButtonInput.classList.add("btn-outline-dark");
-                themeButtonInput.classList.remove("btn-dark");
-                themeButtonInput.classList.remove("dark-to-light");
+            // Resacatamos los valores de la cookie de accesibility
+            let CookiesInfo = localStorage.getItem("accessibility").split(";");
+            // Asignamos los valores a los elementos del DOM
+            document.styleSheets[0].cssRules[0].style.fontSize = rangeInput.value + "px";
+            rangeOutput.innerHTML = rangeInput.value;
+            rangeInput.value = CookiesInfo[0]; // fontSize
+            rangeOutput.innerHTML = CookiesInfo[0]; // fontSize
+            themeButtonInput.value = CookiesInfo[1]; // theme
+            if (CookiesInfo[1] === "light") { // theme = light
+                dark2light();
             }
-            if (CookiesInfo[1] === "dark") {
-                themeButtonInput.innerHTML = '<i class="bi bi-brightness-high"></i> (Oscuro)';
-                themeButtonInput.classList.add("btn-dark");
-                themeButtonInput.classList.remove("btn-outline-dark");
-                themeButtonInput.classList.remove("light-to-dark");
+            if (CookiesInfo[1] === "dark") { // theme = dark
+                light2dark();
             }
-            daltonicButtonInput.value = CookiesInfo[2];
-            if (CookiesInfo[2] === "0") {
-                daltonicButtonInput.innerHTML = '<i class="bi bi-eyeglasses"></i> (Apagado)';
-                document.getElementById("colorblind_css").href = "";
+            daltonicButtonInput.value = CookiesInfo[2]; // daltonic
+            if (CookiesInfo[2] === "0") { // daltonic = 0 (off)
+                daltonic2off();
             }
-            if (CookiesInfo[2] === "1") {
-                daltonicButtonInput.innerHTML = '<i class="bi bi-eyeglasses"></i> (Encendido)';
-                document.getElementById("colorblind_css").href = "css/colorblind.css";
+            if (CookiesInfo[2] === "1") { // daltonic = 1 (on)
+                daltoninc2on();
             }
         }
-
         // theme button
-        themeButtonInput.addEventListener("click", function () {
+        themeButtonInput.addEventListener("click", () => {
             if (themeButtonInput.value == "light") {
-                themeButtonInput.value = "dark";
-                themeButtonInput.innerHTML =
-                    '<i class="bi bi-moon-fill"></i> (Oscuro)';
-                themeButtonInput.classList.remove("btn-outline-dark");
-                themeButtonInput.classList.add("btn-dark");
-                themeButtonInput.classList.add("dark-to-light");
-                document.getElementById("theme").href =
-                    "./estilos/style_dark.css";
-                document
-                    .getElementById("modal_content")
-                    .classList.add("modal-content-dark");
-                if (
-                    daltonicButtonInput.value == "1"
-                ) {
-                    // claro
-                    document.getElementById("colorblind_css").href =
-                        "./estilos/style_colorblind_dark.css";
-                } else {
-                    // oscuro
-                    document.getElementById("colorblind_css").href = "";
-                }
+                light2dark();
             } else {
-                document.getElementById("themeButton").value = "light";
-                document.getElementById("themeButton").innerHTML =
-                    '<i class="bi bi-brightness-high"></i> (Claro)';
-                document
-                    .getElementById("themeButton")
-                    .classList.add("btn-outline-dark");
-                document
-                    .getElementById("themeButton")
-                    .classList.remove("btn-dark");
-                document
-                    .getElementById("themeButton")
-                    .classList.remove("dark-to-light");
-                document.getElementById("theme").href =
-                    "./estilos/style.css";
-                if (
-                    daltonicButtonInput.value == "1"
-                ) {
-                    // claro
-                    document.getElementById("colorblind_css").href =
-                        "./estilos/style_colorblind.css";
-                } else {
-                    // oscuro
-                    document.getElementById("colorblind_css").href = "";
-                }
+                dark2light();
             }
+            localStorage.setItem("accessibility", rangeInput.value + ";" + themeButtonInput.value + ";" + daltonicButtonInput.value);
         });
         // daltonic button
-        daltonicButtonInput.addEventListener("click", function () {
+        daltonicButtonInput.addEventListener("click", () => {
             if (daltonicButton.value == "0") {
                 // enciende
-                daltonicButtonInput.value = "1";
-                daltonicButtonInput.innerHTML =
-                    "<i class='bi bi-sunglasses'></i> (Encendido)";
-                document.getElementById("logo").src =
-                    "./media/imagenes/logo_colorblind.jpg";
-                if (
-                    document.getElementById("themeButton").value == "light"
-                ) {
-                    // claro
-                    document.getElementById("colorblind_css").href =
-                        "./estilos/style_colorblind.css";
-                } else {
-                    // oscuro
-                    document.getElementById("colorblind_css").href =
-                        "./estilos/style_colorblind_dark.css";
-                }
+                daltoninc2on();
             } else {
                 // apaga
-                daltonicButtonInput.value = "0";
-                daltonicButtonInput.innerHTML =
-                    '<i class="bi bi-eyeglasses"></i> (Apagado)';
-                document.getElementById("logo").src =
-                    "./media/imagenes/logo.jpg";
-                document.getElementById("colorblind_css").href = "";
+                daltonic2off();
             }
+            localStorage.setItem("accessibility", rangeInput.value + ";" + themeButtonInput.value + ";" + daltonicButtonInput.value);
         });
         // font size slider
         rangeInput.addEventListener("input", () => {
-            document.styleSheets[0].cssRules[0].style.fontSize =
-                rangeInput.value + "px";
-            document.getElementById("outputRange").innerHTML =
-                rangeInput.value;
+            rangeSelect();
+            localStorage.setItem("accessibility", rangeInput.value + ";" + themeButtonInput.value + ";" + daltonicButtonInput.value);
         });
+        // Ligth to dark
+        function light2dark() {
+            themeButtonInput.value = "dark";
+            themeButtonInput.innerHTML = '<i class="bi bi-moon-fill"></i> (Oscuro)';
+            themeButtonInput.classList.remove("btn-outline-dark");
+            themeButtonInput.classList.add("btn-dark");
+            themeButtonInput.classList.add("dark-to-light");
+            theme.href = "./estilos/style_dark.css";
+            modal_content.classList.add("modal-content-dark");
+            if (daltonicButtonInput.value == "1") {
+                // claro
+                colorblind_css.href = "./estilos/style_colorblind_dark.css";
+            } else {
+                // oscuro
+                colorblind_css.href = "";
+            }
+        }
+        // Dark to light
+        function dark2light() {
+            themeButtonInput.value = "light";
+            themeButtonInput.innerHTML =
+                '<i class="bi bi-brightness-high"></i> (Claro)';
+            themeButtonInput.classList.add("btn-outline-dark");
+            themeButtonInput.classList.remove("btn-dark");
+            themeButtonInput.classList.remove("dark-to-light");
+            theme.href = "./estilos/style.css";
+            if (daltonicButtonInput.value == "1") {
+                // claro
+                colorblind_css.href = "./estilos/style_colorblind.css";
+            } else {
+                // oscuro
+                colorblind_css.href = "";
+            }
+            modal_content.classList.remove("modal-content-dark");
+        }
+        // Daltonic on
+        function daltoninc2on() {
+            daltonicButtonInput.value = "1";
+            daltonicButtonInput.innerHTML = "<i class='bi bi-sunglasses'></i> (Encendido)";
+            logo.src = "./media/imagenes/logo_colorblind.jpg";
+            if (themeButtonInput.value == "light") {
+                // claro
+                colorblind_css.href = "./estilos/style_colorblind.css";
+            } else {
+                // oscuro
+                colorblind_css.href = "./estilos/style_colorblind_dark.css";
+            }
+        }
+        // Daltonic off
+        function daltonic2off() {
+            daltonicButtonInput.value = "0";
+            daltonicButtonInput.innerHTML = '<i class="bi bi-eyeglasses"></i> (Apagado)';
+            logo.src = "./media/imagenes/logo.jpg";
+            colorblind_css.href = "";
+        }
+        // font size select
+        function rangeSelect() {
+            document.styleSheets[0].cssRules[0].style.fontSize = rangeInput.value + "px";
+            rangeOutput.innerHTML = rangeInput.value;
+        }
     }
+
 
     // Load cookies message with ajax request
     async function loadCookiesMessage() {
@@ -218,17 +214,4 @@
         var footer_content = await footer_content.text();
         footer.innerHTML = footer_content;
     }
-
-    const CrearItem = (actividad) => {
-
-        let item = {
-          actividad: actividad,
-          estado: false
-        }
-      
-        CookiesInfo.push(item);
-      
-        return item;
-      
-      }
 })();

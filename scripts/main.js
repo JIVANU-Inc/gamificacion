@@ -39,7 +39,6 @@
         const theme = document.getElementById("theme");
         const logo = document.getElementById("logo");
         const modal_content = document.getElementById("modal_content");
-
         // No existe la cookie de accesibility en el LocalStorage
         if (localStorage.getItem("accessibility") === null) {
             // Valores por defecto: fontSize = 16px | theme = light | daltonic = 0 (off)
@@ -164,7 +163,6 @@
             rangeOutput.innerHTML = rangeInput.value;
         }
     }
-
 
     // Load cookies message with ajax request
     async function loadCookiesMessage() {

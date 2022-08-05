@@ -33,7 +33,7 @@ getXML().then((data) => {
         answers.forEach(answer => {
             test += "\n" + answer[0] + " -> " + answer[1];
         });
-        alert(test);
+        //alert(test);
     });
 }).catch((error) => {
     console.log(error);

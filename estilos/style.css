@@ -682,6 +682,7 @@ p {
         font-size: 1.5rem;
     }
 }
+
 @media (max-width: 767px) {
     .hero-section-wrapper-5 .hero-style-5 .hero-content-wrapper {
         padding-bottom: 50px;

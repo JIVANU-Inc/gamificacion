@@ -276,6 +276,16 @@ p {
     margin-bottom: 0px;
 }
 
+.table > :not(:first-child) {
+    border-top: 2px solid #e6e6e6;
+}
+
+.table tr {
+    color: #e6e6e6;
+    border-color: #9a9a9a;
+}
+
+
 .button {
     height: 44px;
     font-size: 18px;
@@ -457,7 +467,7 @@ p {
 }
 
 .header.header-6 .navbar-nav .nav-item a {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
     color: #e6e6e6;
     transition: all 0.3s ease-out 0s;
@@ -665,6 +675,22 @@ p {
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .hero-section-wrapper-5 .hero-style-5 .hero-content-wrapper {
         padding-bottom: 50px;
+    }
+}
+
+@media (max-width: 350px) {
+    .navbar-brand img{
+        width: 100px;
+    }
+}
+
+@media (min-width: 280px) {
+    .header-action {
+        margin-right: -22px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
     }
 }
 
@@ -944,31 +970,6 @@ p {
 
 .modal-content-dark {
     background: #323450;
-}
-
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-    color: #dbdbdb !important;
-}
-
-table.dataTable tbody tr {
-    background-color: #323450;
-}
-
-.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
-.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
-.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
-    color: #dbdbdb !important;
-}
-
-.dataTables_wrapper .dataTables_length,
-.dataTables_wrapper .dataTables_filter,
-.dataTables_wrapper .dataTables_info,
-.dataTables_wrapper .dataTables_processing,
-.dataTables_wrapper .dataTables_paginate {
-    color: #dbdbdb !important;
-}
-.header.header-6 .navbar-toggler .toggler-icon {
-    background: #dbdbdb;
 }
 
 .smaller {

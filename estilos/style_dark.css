@@ -1,6 +1,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    min-width: 275px;
 }
 
 body {
@@ -415,7 +416,7 @@ p {
 .header.header-6 .navbar-toggler .toggler-icon {
     width: 30px;
     height: 2px;
-    background-color: #323450;
+    background-color: #e6e6e6;
     display: block;
     margin: 5px 0;
     position: relative;

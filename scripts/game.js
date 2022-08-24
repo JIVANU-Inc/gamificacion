@@ -1,3 +1,12 @@
+// Load game menu with ajax request
+async function loadGame() {
+    const gameMenu = document.getElementById("game");
+    var gameMenu_content = await fetch("./views/gameMenu.html");
+    var gameMenu_content = await gameMenu_content.text();
+    gameMenu.innerHTML = gameMenu_content;
+}
+
+// Load questions from XML with ajax request
 async function getXML() {
     let preguntas = [];
     const response = await fetch('./xml/cuestionario.xml');
@@ -25,16 +34,4 @@ async function getXML() {
     return shuffled;
 }
 
-getXML().then((data) => {
-    data.forEach(element => {
-        let question = element[0];
-        let test = question;
-        let answers = element[1];
-        answers.forEach(answer => {
-            test += "\n" + answer[0] + " -> " + answer[1];
-        });
-        alert(test);
-    });
-}).catch((error) => {
-    console.log(error);
-});
+loadGame();

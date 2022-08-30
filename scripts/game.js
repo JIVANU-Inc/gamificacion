@@ -1,9 +1,26 @@
 // Load game menu with ajax request
 async function loadGame() {
-    const gameMenu = document.getElementById("game");
+    const gameMenu = document.getElementById("playground");
     var gameMenu_content = await fetch("./views/gameMenu.html");
     var gameMenu_content = await gameMenu_content.text();
     gameMenu.innerHTML = gameMenu_content;
+    document.getElementById("historial").addEventListener("click", function () {
+        gameMenu.innerHTML = "";
+        loadHistorial();
+    });
+
+}
+
+// Load historial with ajax request
+async function loadHistorial() {
+    const historial = document.getElementById("playground");
+    var historial_content = await fetch("./views/historial.html");
+    var historial_content = await historial_content.text();
+    historial.innerHTML = historial_content;
+    const volver = document.getElementById("volver");
+    volver.addEventListener("click", function () {
+        loadGame();
+    });
 }
 
 // Load questions from XML with ajax request

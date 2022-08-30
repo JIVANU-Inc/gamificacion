@@ -62,61 +62,71 @@
     <div id="header"></div>
     <section id="feature" class="feature-section feature-style-5 mt-5">
         <div class="container">
-            <div id="game"></div>
-        </div>
+            <div class="row justify-content-center">
+                <div class="col-xxl-5 col-xl-5 col-lg-7 col-md-8" style="width: 700px">
+                    <div class="section-title text-center mb-60">
+                        <h3 class="mb-15">
+                            PREGUNTA 1:
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <p class="mb-5">
+                        <strong>
+                            Puntuación:
+                        </strong>
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <p class="mb-5">
+                        <strong>
+                            Tiempo restante:
+                        </strong>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-feature quest1 bg-primary">
+                            <div class="content">
+                                <p>Sección para descargar documentos de estudio</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-feature quest2 bg-secondary">
+                            <div class="content">
+                                <p>Pon a prueba tus conocimientos mientras juegas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-feature quest3 bg-success">
+                            <div class="content">
+                                <p>Sección para descargar documentos de estudio</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="single-feature quest4 bg-danger">
+                            <div class="content">
+                                <p>Sección para descargar documentos de estudio</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </section>
     <div id="footer" class="footer footer-style-4 mt-auto"></div>
     <!-- JavaScript -->
     <script charset="UTF-8" language="javascript" type="text/javascript" src="./scripts/jquery-3.6.0.min.js"></script>
     <script charset="UTF-8" language="javascript" type="text/javascript" src="./scripts/cextapi.js"></script>
     <script charset="UTF-8" language="javascript" type="text/javascript" src="./scripts/main.js"></script>
-    <!-- JavaScript Game -->
-    <script charset="UTF-8" language="javascript" type="text/javascript" src="./scripts/game.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-
-    <!-- <script>
-        var ms = tiempo.getmilliseconds();
-        tiempo.setMilliseconds(ms + 1000);
-        var texto = rellenarCeros(tiempo.getMinutes()) + ":" + rellenarCeros(tiempo.getSeconds());
-        var spanTiempo = document.getElementById("tiempo");
-        spanTiempo.innerHTML = texto;
-
-        if (tiempo.getSeconds() < 6) {
-            spanTiempo.style.color = "red";
-        } else if (tiempo.getSeconds() < 10) {
-            spanTiempo.style.color = "orange";
-        } else {
-            spanTiempo.style.color = "green";
-        }
-        if (tiempo.getSeconds() <= 0) {
-            var mensaje = "Su tiempo se acabo";
-            finalizaJuego(mensaje);
-        }
-        else {
-            stop = setTimeout(tiempofinal, 1000);
-        }
-
-        function rellenarCeros(numero) {
-            if (numero < 10) {
-                return "0" + numero;
-            } else {
-                return numero;
-            }
-        }
-
-        function finalizaJuego(mensaje) {
-            clearTimeout(stop);
-            var spanTiempo = document.getElementById("tiempo");
-            spanTiempo.innerHTML = mensaje;
-            spanTiempo.style.color = "red";
-            var boton = document.getElementById("boton");
-            boton.style.display = "none";
-            clearTimeout(stop);
-        }
-    </script> -->
 
 </body>
 

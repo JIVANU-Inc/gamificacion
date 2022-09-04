@@ -22,8 +22,12 @@ async function loadHistorial() {
     });
     let texto = ""; // declaramos un texto vacio para añadir el html
     let numPartidas = CEXT.getNumAttemp(); // número de partidas realizadas hasta el momento
-    for (let i = 1; i <= numPartidas; i++) {
-        texto += `<tr><td>${i}</td><td>${CEXT.getAttempPoints(i)}</td></tr>`; // añadimos el html a la variable texto [numero de partida, puntos de la partida]
+    if (numPartidas == 0) { // si no hay partidas realizadas
+        texto = "<tr><td>No hay partidas registradas</td><td>No hay partidas registradas</td></tr>";
+    } else {
+        for (let i = 1; i <= numPartidas; i++) {
+            texto += `<tr><td>${i}</td><td>${CEXT.getAttempPoints(i)}</td></tr>`; // añadimos el html a la variable texto [numero de partida, puntos de la partida]
+        }
     }
     document.getElementById("tbody").innerHTML = texto; // añadimos el html a la tabla
 }

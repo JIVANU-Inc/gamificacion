@@ -17,15 +17,15 @@ async function loadHistorial() {
     var historial_content = await fetch("./views/historial.html");
     var historial_content = await historial_content.text();
     historial.innerHTML = historial_content;
+    document.getElementById("volver").addEventListener("click", function () {
+        loadGame();
+    });
     let texto = ""; // declaramos un texto vacio para añadir el html
     let numPartidas = CEXT.getNumAttemp(); // número de partidas realizadas hasta el momento
     for (let i = 1; i <= numPartidas; i++) {
         texto += `<tr><td>${i}</td><td>${CEXT.getAttempPoints(i)}</td></tr>`; // añadimos el html a la variable texto [numero de partida, puntos de la partida]
     }
     document.getElementById("tbody").innerHTML = texto; // añadimos el html a la tabla
-    document.getElementById("volver").addEventListener("click", function () {
-        loadGame();
-    });
 }
 
 // Load questions from XML with ajax request

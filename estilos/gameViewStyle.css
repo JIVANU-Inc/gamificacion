@@ -6,3 +6,31 @@ p {
     text-decoration: none;
     color: #323450;
 }
+
+.quest1 {
+    background-color: #df776f;
+}
+
+.quest2 {
+    background-color: #e47753;
+}
+
+.quest3 {
+    background-color: #f3c259;
+}
+
+.quest4 {
+    background-color: #b37966;
+}
+
+.time {
+    text-align: end;
+}
+
+.quest-name {
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 0 7px #4e4b4b;
+}

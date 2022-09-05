@@ -36,5 +36,5 @@ getXML().then((data) => {
         alert(test);
     });
 }).catch((error) => {
-    console.log(error);
+    console.error(error);
 });

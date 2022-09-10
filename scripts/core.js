@@ -1,4 +1,6 @@
 const play = document.getElementById("play");
+
+// Cargar las preguntas del fichero XML
 async function getXML() {
     let preguntas = [];
     const response = await fetch('./xml/cuestionario.xml');
@@ -39,7 +41,9 @@ getXML().then((data) => {
 }).catch((error) => {
     console.error(error);
 });
+
 CEXT.onInit = () => {
+    // TODO: Add logic here
     let pregunta1 = `<div class="quest-name row justify-content-center">
     <div class="col-xxl-5 col-xl-5 col-lg-7 col-md-8" style="width: 700px">
         <div class="section-title text-center mb-60">

@@ -78,24 +78,6 @@
         crossorigin="anonymous"></script>
 
     <!-- <script>
-        var partidaNum = 0;
-
-        CEXT.onInit = function () {
-            // Realizar las llamadas de inicialización del juego
-            let estado = CEXT.getGlobalStatus(); // true si había una partida guardada, false en caso contrario
-            if (estado) {
-                // Si hay una partida guardada, cargarla
-                partidaNum = CEXT.getNumAttempts();
-                CEXT.loadGame();
-            } else {
-                // Si no hay partida guardada, iniciar una nueva partida
-                CEXT.startNewAttempt();
-            }
-        }
-
-    </script> -->
-
-    <!-- <script>
         var ms = tiempo.getmilliseconds();
         tiempo.setMilliseconds(ms + 1000);
         var texto = rellenarCeros(tiempo.getMinutes()) + ":" + rellenarCeros(tiempo.getSeconds());

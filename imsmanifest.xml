@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!--This is a Reload version 2.0.2 SCORM 1.2 Content Package document-->
 <!--Spawned from the Reload Content Package Generator - http://www.reload.ac.uk-->
-<manifest xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" identifier="MANIFESTv1_0" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+<manifest xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" identifier="MANIFESTv1_0" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                                                                                                                                                                                                                                                                                        http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+                                                                                                                                                                                                                                                                                        http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
   <organizations default="ORG-A0BE1AA3-62E0-A232-0288-454689B81A22">
     <organization identifier="ORG-A0BE1AA3-62E0-A232-0288-454689B81A22" structure="hierarchical">
       <title>Concurso Quiz Mapfre</title>
@@ -11,9 +13,8 @@
     </organization>
   </organizations>
   <resources>
-    <resource identifier="R01" type="webcontent" adlcp:scormtype="sco" href="game.html">
-      <file href="game.html" />
+    <resource identifier="R01" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="index.html" />
     </resource>
   </resources>
 </manifest>
-

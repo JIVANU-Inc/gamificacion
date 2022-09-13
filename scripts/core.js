@@ -28,37 +28,42 @@ async function getXML() {
     return shuffled;
 }
 
-getXML().then((data) => {
-    data.forEach(element => {
-        let question = element[0];
-        let test = question;
-        let answers = element[1];
-        answers.forEach(answer => {
-            test += "\n" + answer[0] + " -> " + answer[1];
-        });
-        //alert(test);
-    });
-}).catch((error) => {
-    console.error(error);
-});
-
 CEXT.onInit = () => {
     // TODO: Add logic here
-    var partidaNum = 0;
+    var partidaNum = null;
 
     CEXT.onInit = () => {
         // Realizar las llamadas de inicialización del juego
         let estado = CEXT.getGlobalStatus(); // true si había una partida guardada, false en caso contrario
 
         if (estado) {
-            // Si hay una partida guardada, cargarla
-            partidaNum = CEXT.getNumAttempts();
-            CEXT.loadGame();
+            let confirm = confirm("Hay una partida guardada\n¿Desea continuar?");
+            if (confirm) {
+                // Si hay una partida guardada, cargarla
+                partidaNum = CEXT.getNumAttempts(); // Número de partida
+
+            } else {
+                alert("no hay partida guardada");
+            }
+
         } else {
             // Si no hay partida guardada, iniciar una nueva partida
             CEXT.startNewAttempt();
 
             // Cargar las preguntas del fichero XML
+            getXML().then((data) => {
+                data.forEach(element => {
+                    let question = element[0];
+                    let test = question;
+                    let answers = element[1];
+                    answers.forEach(answer => {
+                        test += "\n" + answer[0] + " -> " + answer[1];
+                    });
+                    //alert(test);
+                });
+            }).catch((error) => {
+                console.error(error);
+            });
 
             let pregunta = `<div class="quest-name row justify-content-center">
                                 <div class="col-xxl-5 col-xl-5 col-lg-7 col-md-8" style="width: 700px">

@@ -1,3 +1,4 @@
+// CEXT.onInit = () => {
 window.onload = () => {
     window.location.href = "#inicio";
     if (localStorage.getItem("cookiesMessage") === null) {
@@ -240,13 +241,9 @@ async function loadIndex() {
  * Función para cargar el HTML con el contenido de la página de documentos
  */
 async function loadDocuments() {
-    // Elementos del DOM
     const feature = document.getElementById("feature");
-    // Petición AJAX
     var documents_content = await fetch("./views/documentsView.html");
-    // Cargamos el contenido de los documentos
     var documents_content = await documents_content.text();
-    // Cargamos los documentos
     feature.innerHTML = documents_content;
 }
 
@@ -254,19 +251,13 @@ async function loadDocuments() {
  * Función para cargar el HTML con el contenido de el menú del juego
  */
 async function loadGameMenu() {
-    // Elementos del DOM
     const feature = document.getElementById("feature");
-    // Petición AJAX
     var menu_content = await fetch("./views/gameMenu.html");
-    // Cargamos el contenido del juego
     var menu_content = await menu_content.text();
-    // Cargamos el juego
     feature.innerHTML = menu_content;
-    // Elementos del DOM
     const gameButton = document.getElementById("jugar");
     const addQuestionsButton = document.getElementById("preguntas");
     const historyButton = document.getElementById("historial");
-    // Eventos
     // gameButton.addEventListener("click", () => {
     //     loadGame();
     // });
@@ -283,18 +274,24 @@ async function loadGameMenu() {
  * Función para cargar el HTML con el contenido del historial de partidas
  */
 async function loadHistory() {
-    // Elementos del DOM
     const feature = document.getElementById("feature");
-    // Petición AJAX
     var history_content = await fetch("./views/historyView.html");
-    // Cargamos el contenido del historial
     var history_content = await history_content.text();
-    // Cargamos el historial
     feature.innerHTML = history_content;
-    // Elementos del DOM
     const volver = document.getElementById("volver");
-    // Eventos
+    const tbody = document.getElementById("tbody");
+    let texto = "";
+    let numPartidas = CEXT.getNumAttemp();
+    if (numPartidas == 0 || numPartidas == null) {
+        alert("No hay partidas registradas");
+    } else {
+        for (let i = 1; i <= numPartidas; i++) {
+            texto += `<tr><td>${i}</td><td>${CEXT.getAttempPoints(i)}</td></tr>`;
+        }
+    }
+    tbody.innerHTML = texto;
     volver.addEventListener("click", () => {
         loadGameMenu();
     });
 }
+// }

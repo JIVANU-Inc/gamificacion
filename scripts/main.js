@@ -6,7 +6,8 @@ window.onload = () => {
     }
     menuActiveClass();
     accesibility();
-    loadIndex();
+    // loadIndex();
+    loadGameMenu(); // Para probar el juego
     window.setTimeout(fadeout, 300);
 };
 
@@ -261,9 +262,9 @@ async function loadGameMenu() {
     gameButton.addEventListener("click", () => {
         loadGame();
     });
-    // addQuestionsButton.addEventListener("click", () => {
-    //     loadAddQuestions();
-    // });
+    addQuestionsButton.addEventListener("click", () => {
+        loadAddQuestions();
+    });
     historyButton.addEventListener("click", () => {
         loadHistory();
     });
@@ -278,6 +279,16 @@ async function loadGame() {
     var game_content = await fetch("./views/gameView.html");
     var game_content = await game_content.text();
     feature.innerHTML = game_content;
+}
+
+/**
+ * Función para cargar el HTML con el contenido de añadir preguntas
+ */
+async function loadAddQuestions() {
+    const feature = document.getElementById("feature");
+    var addQuestions_content = await fetch("./views/addQuestionsView.html");
+    var addQuestions_content = await addQuestions_content.text();
+    feature.innerHTML = addQuestions_content;
 }
 
 /**

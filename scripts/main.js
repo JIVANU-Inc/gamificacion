@@ -258,9 +258,9 @@ async function loadGameMenu() {
     const gameButton = document.getElementById("jugar");
     const addQuestionsButton = document.getElementById("preguntas");
     const historyButton = document.getElementById("historial");
-    // gameButton.addEventListener("click", () => {
-    //     loadGame();
-    // });
+    gameButton.addEventListener("click", () => {
+        loadGame();
+    });
     // addQuestionsButton.addEventListener("click", () => {
     //     loadAddQuestions();
     // });
@@ -268,6 +268,13 @@ async function loadGameMenu() {
         loadHistory();
     });
 
+}
+
+async function loadGame() {
+    const feature = document.getElementById("feature");
+    var game_content = await fetch("./views/gameView.html");
+    var game_content = await game_content.text();
+    feature.innerHTML = game_content;
 }
 
 /**

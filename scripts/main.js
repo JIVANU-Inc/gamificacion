@@ -270,6 +270,9 @@ async function loadGameMenu() {
 
 }
 
+/**
+ * Función para cargar el HTML con el contenido del juego
+ */
 async function loadGame() {
     const feature = document.getElementById("feature");
     var game_content = await fetch("./views/gameView.html");
@@ -290,15 +293,19 @@ async function loadHistory() {
     volver.addEventListener("click", () => {
         loadGameMenu();
     });
-    let texto = "";
-    let numPartidas = CEXT.getNumAttemp();
-    if (numPartidas == 0 || numPartidas == null) {
-        alert("No hay partidas registradas");
-    } else {
-        for (let i = 1; i <= numPartidas; i++) {
-            texto += `<tr><td>${i}</td><td>${CEXT.getAttempPoints(i)}</td></tr>`;
+    try {
+        let texto = "";
+        let numPartidas = CEXT.getNumAttemp();
+        if (numPartidas == 0 || numPartidas == null) {
+            alert("No hay partidas registradas");
+        } else {
+            for (let i = 1; i <= numPartidas; i++) {
+                texto += `<tr><td>${i}</td><td>${CEXT.getAttempPoints(i)}</td></tr>`;
+            }
         }
+        tbody.innerHTML = texto;
+    } catch (error) {
+        console.log(error);
     }
-    tbody.innerHTML = texto;
 }
 // }

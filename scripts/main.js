@@ -280,6 +280,9 @@ async function loadHistory() {
     feature.innerHTML = history_content;
     const volver = document.getElementById("volver");
     const tbody = document.getElementById("tbody");
+    volver.addEventListener("click", () => {
+        loadGameMenu();
+    });
     let texto = "";
     let numPartidas = CEXT.getNumAttemp();
     if (numPartidas == 0 || numPartidas == null) {
@@ -290,8 +293,5 @@ async function loadHistory() {
         }
     }
     tbody.innerHTML = texto;
-    volver.addEventListener("click", () => {
-        loadGameMenu();
-    });
 }
 // }

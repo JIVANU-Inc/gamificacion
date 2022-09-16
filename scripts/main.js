@@ -268,7 +268,6 @@ async function loadGameMenu() {
     historyButton.addEventListener("click", () => {
         loadHistory();
     });
-
 }
 
 /**

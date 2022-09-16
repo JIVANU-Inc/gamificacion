@@ -56,7 +56,7 @@ function menuActiveClass() {
         indexMenuButton.classList.remove("active");
         documentsMenuButton.classList.remove("active");
         gameMenuButton.classList.add("active");
-        loadGame();
+        loadGameMenu();
     });
 }
 
@@ -232,7 +232,7 @@ async function loadIndex() {
         indexMenuButton.classList.remove("active");
         documentsMenuButton.classList.remove("active");
         gameMenuButton.classList.add("active");
-        loadGame();
+        loadGameMenu();
     });
 }
 
@@ -253,7 +253,7 @@ async function loadDocuments() {
 /**
  * Función para cargar el HTML con el contenido de el menú del juego
  */
-async function loadGame() {
+async function loadGameMenu() {
     // Elementos del DOM
     const feature = document.getElementById("feature");
     // Petición AJAX
@@ -262,4 +262,39 @@ async function loadGame() {
     var menu_content = await menu_content.text();
     // Cargamos el juego
     feature.innerHTML = menu_content;
+    // Elementos del DOM
+    const gameButton = document.getElementById("jugar");
+    const addQuestionsButton = document.getElementById("preguntas");
+    const historyButton = document.getElementById("historial");
+    // Eventos
+    // gameButton.addEventListener("click", () => {
+    //     loadGame();
+    // });
+    // addQuestionsButton.addEventListener("click", () => {
+    //     loadAddQuestions();
+    // });
+    historyButton.addEventListener("click", () => {
+        loadHistory();
+    });
+
+}
+
+/**
+ * Función para cargar el HTML con el contenido del historial de partidas
+ */
+async function loadHistory() {
+    // Elementos del DOM
+    const feature = document.getElementById("feature");
+    // Petición AJAX
+    var history_content = await fetch("./views/historyView.html");
+    // Cargamos el contenido del historial
+    var history_content = await history_content.text();
+    // Cargamos el historial
+    feature.innerHTML = history_content;
+    // Elementos del DOM
+    const volver = document.getElementById("volver");
+    // Eventos
+    volver.addEventListener("click", () => {
+        loadGameMenu();
+    });
 }

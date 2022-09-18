@@ -334,11 +334,11 @@ async function loadGame() {
 /**
  * Función para agregar los eventos a los botones del juego
  * @param {Array} element 
- * @param {html element} puntuacion 
- * @param {html element} boton1 
- * @param {html element} boton2 
- * @param {html element} boton3 
- * @param {html element} boton4 
+ * @param {HTML element} puntuacion 
+ * @param {HTML element} boton1 
+ * @param {HTML element} boton2 
+ * @param {HTML element} boton3 
+ * @param {HTML element} boton4 
  */
 function seleccion(element, puntuacion, boton1, boton2, boton3, boton4) {
     boton1.addEventListener("click", () => {
@@ -375,6 +375,20 @@ function seleccion(element, puntuacion, boton1, boton2, boton3, boton4) {
     });
 }
 
+/**
+ * Función para obtener una pregunta
+ * @param {Integer} flag 
+ * @param {HTML element} puntuacion 
+ * @param {HTML element} boton1 
+ * @param {HTML element} boton2 
+ * @param {HTML element} boton3 
+ * @param {HTML element} boton4 
+ * @param {HTML element} pregunta 
+ * @param {HTML element} respuesta1 
+ * @param {HTML element} respuesta2 
+ * @param {HTML element} respuesta3 
+ * @param {HTML element} respuesta4 
+ */
 function getQuestion(flag, puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4) {
     getXML().then((data) => {
         seleccion(data[flag], puntuacion, boton1, boton2, boton3, boton4);

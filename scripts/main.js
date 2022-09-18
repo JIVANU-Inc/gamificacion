@@ -309,7 +309,7 @@ async function loadGame() {
     try {
         let partidaNum = null;
         // let estado = await CEXT.getGlobalStatus();
-        let estado = true; // ! Test
+        let estado = false; // ! Test
         if (estado) {
             if (confirm("Hay una partida guardada\n¿Desea continuarla?")) {
                 // partidaNum = await CEXT.getNumAttempts();
@@ -329,6 +329,41 @@ async function loadGame() {
     } catch (error) {
         console.error(error);
     }
+}
+
+function seleccion(element, puntuacion, respuesta1, respuesta2, respuesta3, respuesta4) {
+    respuesta1.addEventListener("click", () => {
+        if (element[1][0][1] == "true") {
+            puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
+            alert("Correcto");
+        } else {
+            alert("Incorrecto");
+        }
+    });
+    respuesta2.addEventListener("click", () => {
+        if (element[1][1][1] == "true") {
+            puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
+            alert("Correcto");
+        } else {
+            alert("Incorrecto");
+        }
+    });
+    respuesta3.addEventListener("click", () => {
+        if (element[1][2][1] == "true") {
+            puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
+            alert("Correcto");
+        } else {
+            alert("Incorrecto");
+        }
+    });
+    respuesta4.addEventListener("click", () => {
+        if (element[1][3][1] == "true") {
+            puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
+            alert("Correcto");
+        } else {
+            alert("Incorrecto");
+        }
+    });
 }
 
 /**
@@ -351,11 +386,14 @@ async function newGame() {
         let flag = 0;
         getXML().then((data) => {
             data.forEach(element => {
-                let question = element[0];
-                let answers = element[1];
-                answers.forEach(answer => {
-                    test += `\n ${answer[0]} -> ${answer[1]}`;
-                });
+                pregunta.innerHTML = element[0];
+                respuesta1.innerHTML = element[1][0][0];
+                respuesta2.innerHTML = element[1][1][0];
+                respuesta3.innerHTML = element[1][2][0];
+                respuesta4.innerHTML = element[1][3][0];
+                timer.innerHTML = flag;
+                // wait until click event
+                seleccion(element, puntuacion, respuesta1, respuesta2, respuesta3, respuesta4);
                 if (flag == 15) {
                     throw BreakException;
                 }

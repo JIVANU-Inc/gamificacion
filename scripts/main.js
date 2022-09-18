@@ -331,58 +331,56 @@ async function loadGame() {
     }
 }
 
+var flag = 0;
+
 /**
  * Función para agregar los eventos a los botones del juego
- * @param {Array} element 
+ * @param {number} flag
+ * @param {Array} element
  * @param {HTML element} puntuacion 
  * @param {HTML element} boton1 
  * @param {HTML element} boton2 
  * @param {HTML element} boton3 
  * @param {HTML element} boton4 
+ * @param {HTML element} pregunta
+ * @param {HTML element} respuesta1
+ * @param {HTML element} respuesta2
+ * @param {HTML element} respuesta3
+ * @param {HTML element} respuesta4
  */
-function seleccion(element, puntuacion, boton1, boton2, boton3, boton4) {
+function seleccion(flag, element, puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4) {
     boton1.addEventListener("click", () => {
         if (element[1][0][1] == "true") {
             puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
-            alert("Correcto");
-        } else {
-            alert("Incorrecto");
         }
+        flag++;
     });
     boton2.addEventListener("click", () => {
         if (element[1][1][1] == "true") {
             puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
-            alert("Correcto");
-        } else {
-            alert("Incorrecto");
         }
+        flag++;
     });
     boton3.addEventListener("click", () => {
         if (element[1][2][1] == "true") {
             puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
-            alert("Correcto");
-        } else {
-            alert("Incorrecto");
         }
+        flag++;
     });
     boton4.addEventListener("click", () => {
         if (element[1][3][1] == "true") {
             puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
-            alert("Correcto");
-        } else {
-            alert("Incorrecto");
         }
+        flag++;
     });
+    if (flag < 15) {
+        getQuestion(flag, element, puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4);
+    }
 }
 
 /**
  * Función para obtener una pregunta
  * @param {Integer} flag 
- * @param {HTML element} puntuacion 
- * @param {HTML element} boton1 
- * @param {HTML element} boton2 
- * @param {HTML element} boton3 
- * @param {HTML element} boton4 
  * @param {HTML element} pregunta 
  * @param {HTML element} respuesta1 
  * @param {HTML element} respuesta2 
@@ -391,14 +389,14 @@ function seleccion(element, puntuacion, boton1, boton2, boton3, boton4) {
  */
 function getQuestion(flag, puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4) {
     getXML().then((data) => {
-        seleccion(data[flag], puntuacion, boton1, boton2, boton3, boton4);
+        seleccion(flag, data[flag], puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4);
         pregunta.innerHTML = data[flag][0];
         respuesta1.innerHTML = data[flag][1][0][0];
         respuesta2.innerHTML = data[flag][1][1][0];
         respuesta3.innerHTML = data[flag][1][2][0];
         respuesta4.innerHTML = data[flag][1][3][0];
     }).catch((error) => {
-        console.error(error);
+        console.log(error);
     });
 }
 
@@ -413,7 +411,6 @@ async function newGame() {
         feature.innerHTML = game_content;
         const pregunta = document.getElementById("pregunta");
         const puntuacion = document.getElementById("puntuacion");
-        const timer = document.getElementById("timer");
         const respuesta1 = document.getElementById("respuesta1");
         const respuesta2 = document.getElementById("respuesta2");
         const respuesta3 = document.getElementById("respuesta3");
@@ -422,15 +419,9 @@ async function newGame() {
         const boton2 = document.getElementById("boton2");
         const boton3 = document.getElementById("boton3");
         const boton4 = document.getElementById("boton4");
-        var BreakException = {};
-        let flag = 0;
         getQuestion(flag, puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4);
-        if (flag == 15) {
-            throw BreakException;
-        }
-        flag++;
     } catch (error) {
-        if (error !== BreakException) throw error;
+        console.log(error);
     }
 }
 

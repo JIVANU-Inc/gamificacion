@@ -331,8 +331,17 @@ async function loadGame() {
     }
 }
 
-function seleccion(element, puntuacion, respuesta1, respuesta2, respuesta3, respuesta4) {
-    respuesta1.addEventListener("click", () => {
+/**
+ * Función para agregar los eventos a los botones del juego
+ * @param {Array} element 
+ * @param {html element} puntuacion 
+ * @param {html element} boton1 
+ * @param {html element} boton2 
+ * @param {html element} boton3 
+ * @param {html element} boton4 
+ */
+function seleccion(element, puntuacion, boton1, boton2, boton3, boton4) {
+    boton1.addEventListener("click", () => {
         if (element[1][0][1] == "true") {
             puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
             alert("Correcto");
@@ -340,7 +349,7 @@ function seleccion(element, puntuacion, respuesta1, respuesta2, respuesta3, resp
             alert("Incorrecto");
         }
     });
-    respuesta2.addEventListener("click", () => {
+    boton2.addEventListener("click", () => {
         if (element[1][1][1] == "true") {
             puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
             alert("Correcto");
@@ -348,7 +357,7 @@ function seleccion(element, puntuacion, respuesta1, respuesta2, respuesta3, resp
             alert("Incorrecto");
         }
     });
-    respuesta3.addEventListener("click", () => {
+    boton3.addEventListener("click", () => {
         if (element[1][2][1] == "true") {
             puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
             alert("Correcto");
@@ -356,13 +365,26 @@ function seleccion(element, puntuacion, respuesta1, respuesta2, respuesta3, resp
             alert("Incorrecto");
         }
     });
-    respuesta4.addEventListener("click", () => {
+    boton4.addEventListener("click", () => {
         if (element[1][3][1] == "true") {
             puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
             alert("Correcto");
         } else {
             alert("Incorrecto");
         }
+    });
+}
+
+function getQuestion(flag, puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4) {
+    getXML().then((data) => {
+        seleccion(data[flag], puntuacion, boton1, boton2, boton3, boton4);
+        pregunta.innerHTML = data[flag][0];
+        respuesta1.innerHTML = data[flag][1][0][0];
+        respuesta2.innerHTML = data[flag][1][1][0];
+        respuesta3.innerHTML = data[flag][1][2][0];
+        respuesta4.innerHTML = data[flag][1][3][0];
+    }).catch((error) => {
+        console.error(error);
     });
 }
 
@@ -382,28 +404,19 @@ async function newGame() {
         const respuesta2 = document.getElementById("respuesta2");
         const respuesta3 = document.getElementById("respuesta3");
         const respuesta4 = document.getElementById("respuesta4");
+        const boton1 = document.getElementById("boton1");
+        const boton2 = document.getElementById("boton2");
+        const boton3 = document.getElementById("boton3");
+        const boton4 = document.getElementById("boton4");
         var BreakException = {};
         let flag = 0;
-        getXML().then((data) => {
-            data.forEach(element => {
-                pregunta.innerHTML = element[0];
-                respuesta1.innerHTML = element[1][0][0];
-                respuesta2.innerHTML = element[1][1][0];
-                respuesta3.innerHTML = element[1][2][0];
-                respuesta4.innerHTML = element[1][3][0];
-                timer.innerHTML = flag;
-                // wait until click event
-                seleccion(element, puntuacion, respuesta1, respuesta2, respuesta3, respuesta4);
-                if (flag == 15) {
-                    throw BreakException;
-                }
-                flag++;
-            });
-        }).catch((error) => {
-            if (error !== BreakException) throw error;
-        });
+        getQuestion(flag, puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4);
+        if (flag == 15) {
+            throw BreakException;
+        }
+        flag++;
     } catch (error) {
-        console.error(error);
+        if (error !== BreakException) throw error;
     }
 }
 

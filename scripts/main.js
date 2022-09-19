@@ -435,9 +435,9 @@ CEXT.onInit = () => {
                 boton4.removeEventListener('click', btnResolver);
                 alert(`Has tenido bien ${puntuacion.innerHTML} de 15 preguntas.\nHas conseguido ${Math.floor(parseInt(puntuacion.innerHTML) * 6.6)} puntos`);
                 CEXT.setGlobalPoints(Math.floor(parseInt(puntuacion.innerHTML) * 6.6));
-                CEXT.setGlobalStatus(false);
-                CEXT.setAttempStatus(CEXT.getNumAttempts(), true);
-                CEXT.setAttempPoints(CEXT.getNumAttempts(), Math.floor(parseInt(puntuacion.innerHTML) * 6.6));
+                CEXT.setGlobalStatus(true);
+                CEXT.setAttempStatus(CEXT.getCurrentAttemp(), true);
+                CEXT.setAttempPoints(CEXT.getCurrentAttemp(), Math.floor(parseInt(puntuacion.innerHTML) * 6.6));
                 loadGameMenu();
             }
             doIt();

@@ -51,63 +51,119 @@
         </div>
     </div>
     <div id="cookiesMessage"></div>
-    <div id="header"></div>
-    <section id="feature" class="feature-section feature-style-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xxl-5 col-xl-5 col-lg-7 col-md-8" style="width: 700px">
-                    <div class="section-title text-center mb-60">
-                        <h3 class="mb-15">
-                            BIENVENIDOS A LA PLATAFORMA DE EDUCACIÓN
-                        </h3>
+    <div id="header">
+        <section id="home" class="hero-section-wrapper-5">
+            <header class="header header-6">
+                <div class="navbar-area">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-12">
+                                <nav class="navbar navbar-expand-lg">
+                                    <a class="navbar-brand" href="https://www.fundacionmapfreguanarteme.org/"
+                                        target="_blank">
+                                        <img class="img-fluid" src="media/imagenes/logo.jpg"
+                                            alt="Fundación MAPFRE Guanarteme" id="logo" />
+                                    </a>
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#navbarSupportedContent6"
+                                        aria-controls="navbarSupportedContent6" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                        <span class="toggler-icon"></span>
+                                        <span class="toggler-icon"></span>
+                                        <span class="toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent6">
+                                        <ul id="nav6" class="navbar-nav ms-auto">
+                                            <li class="nav-item mb-1">
+                                                <a href="#inicio" class="active" id="index">Inicio</a>
+                                            </li>
+                                            <li class="nav-item mb-1">
+                                                <a href="#documentos" class="" id="documents">Documentos</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#juego" class="" id="game">Juego</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="header-action d-flex">
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#accesibility">
+                                            <i class="bi bi-universal-access-circle"></i>
+                                        </a>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </section>
+
+        <!-- Modal accesibility -->
+        <div class="modal fade" id="accesibility" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+            data-bs-keyboard="true">
+            <div class="modal-dialog">
+                <div class="modal-content text-center" id="modal_content">
+                    <div class="modal-body">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel" style="font-size: 24px;">
+                                Opciones
+                            </h5>
+                        </div>
+                        <div class="modal-body black-text">
+                            <h6 class="mb-3" style="font-size: 20px;">Tamaño de letra</h6>
+                            <p>
+                                <span class="smaller" style="font-size: 13px;">A</span>
+                                <input type="range" min="13" max="20" value="16" step="1" class="slider" id="myRange"
+                                    style="font-size: 16px;">
+                                <span class="bigger" style="font-size: 20px;">A</span>
+                                <br />
+                                <output id="outputRange" style="font-size: 16px;"></output>
+                            </p>
+                            <hr />
+                            <h6 class="mb-3" style="font-size: 20px;">Tema</h6>
+                            <p>
+                                <button type="button" class="btn btn-outline-dark" value="light" id="themeButton"
+                                    style="font-size: 16px;">
+                                    <i class="bi bi-brightness-high"></i>
+                                    (Claro)
+                                </button>
+                            </p>
+                            <hr />
+                            <h6 class="mb-3" style="font-size: 20px;">Modo para daltónicos</h6>
+                            <p>
+                                <button type="button" class="btn btn-warning black-text-daltonic" value="0"
+                                    id="daltonicButton" style="font-size: 16px;">
+                                    <i class="bi bi-eyeglasses"></i> (Apagado)
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="close"
+                            style="font-size: 16px;">
+                            Salir
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <a href="./documents.html">
-                        <div class="single-feature">
-                            <div class="icon">
-                                <i class="bi bi-file-earmark-text"></i>
-                                <svg width="110" height="72" viewBox="0 0 110 72" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M 110,54.7589 C 110,85.0014 84.489937,82.202038 54.114237,82.202038 23.738537,82.202038 0,85.0014 0,54.7589 0,24.5164 24.6243,0 55,0 c 30.3757,0 55,24.5164 55,54.7589 z"
-                                        fill="#d33f2b0c" />
-                                </svg>
-                            </div>
-                            <div class="content">
-                                <h5>Documentos</h5>
-                                <p>Sección para descargar documentos de estudio</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <a href="./game.html">
-                        <div class="single-feature">
-                            <div class="icon">
-                                <i class="bi bi-controller"></i>
-                                <svg width="110" height="72" viewBox="0 0 110 72" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M 110,54.7589 C 110,85.0014 84.489937,82.202038 54.114237,82.202038 23.738537,82.202038 0,85.0014 0,54.7589 0,24.5164 24.6243,0 55,0 c 30.3757,0 55,24.5164 55,54.7589 z"
-                                        fill="#d33f2b0c" />
-                                </svg>
-                            </div>
-                            <div class="content">
-                                <h5>Juegos</h5>
-                                <p>Pon a prueba tus conocimientos mientras juegas</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
         </div>
-    </section>
-    <div id="footer" class="footer footer-style-4 mt-auto"></div>
+    </div>
+    <section id="feature" class="feature-section feature-style-5"></section>
+    <div id="footer" class="footer footer-style-4 mt-auto">
+        <footer class="footer footer-style-4 mt-auto">
+            <div class="copyright-wrapper">
+                <p>
+                    Hecho con ❤️ por
+                    <a href="https://github.com/JIVANU-Inc" target="_blank" rel="noopener noreferrer">JIVANU</a>
+                </p>
+            </div>
+        </footer>
+    </div>
     <!-- JavaScript -->
-    <script src="./scripts/main.js"></script>
+    <script charset="UTF-8" language="javascript" type="text/javascript" src="./scripts/jquery-3.6.0.min.js"></script>
+    <script charset="UTF-8" language="javascript" type="text/javascript" src="./scripts/cextapi.js"></script>
+    <script charset="UTF-8" language="javascript" type="text/javascript" src="./scripts/core.js"></script>
+    <script charset="UTF-8" language="javascript" type="text/javascript" src="./scripts/main.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

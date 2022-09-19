@@ -62,7 +62,7 @@ CEXT.onInit = () => {
                     //alert(test);
                 });
             }).catch((error) => {
-                console.error(error);
+                console.log(error);
             });
 
             let pregunta = `<div class="quest-name row justify-content-center">

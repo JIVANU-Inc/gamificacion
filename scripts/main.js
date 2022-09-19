@@ -27,7 +27,7 @@ window.onscroll = () => {
             header_navbar.classList.remove("sticky");
         }
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }
 
@@ -39,7 +39,7 @@ function fadeout() {
         document.querySelector(".preloader").style.opacity = "0";
         document.querySelector(".preloader").style.display = "none";
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }
 
@@ -70,7 +70,7 @@ function menuActiveClass() {
             loadGameMenu();
         });
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }
 
@@ -207,7 +207,7 @@ function accesibility() {
             colorblind_css.href = "";
         }
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }
 
@@ -227,7 +227,7 @@ async function loadCookiesMessage() {
             localStorage.setItem("cookiesMessage", "true");
         });
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }
 
@@ -258,7 +258,7 @@ async function loadIndex() {
             loadGameMenu();
         });
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }
 
@@ -272,7 +272,7 @@ async function loadDocuments() {
         var documents_content = await documents_content.text();
         feature.innerHTML = documents_content;
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }
 
@@ -298,7 +298,7 @@ async function loadGameMenu() {
             loadHistory();
         });
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }
 
@@ -327,77 +327,8 @@ async function loadGame() {
             newGame();
         }
     } catch (error) {
-        console.error(error);
-    }
-}
-
-var flag = 0;
-
-/**
- * Función para agregar los eventos a los botones del juego
- * @param {number} flag
- * @param {Array} element
- * @param {HTML element} puntuacion 
- * @param {HTML element} boton1 
- * @param {HTML element} boton2 
- * @param {HTML element} boton3 
- * @param {HTML element} boton4 
- * @param {HTML element} pregunta
- * @param {HTML element} respuesta1
- * @param {HTML element} respuesta2
- * @param {HTML element} respuesta3
- * @param {HTML element} respuesta4
- */
-function seleccion(flag, element, puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4) {
-    boton1.addEventListener("click", () => {
-        if (element[1][0][1] == "true") {
-            puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
-        }
-        flag++;
-    });
-    boton2.addEventListener("click", () => {
-        if (element[1][1][1] == "true") {
-            puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
-        }
-        flag++;
-    });
-    boton3.addEventListener("click", () => {
-        if (element[1][2][1] == "true") {
-            puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
-        }
-        flag++;
-    });
-    boton4.addEventListener("click", () => {
-        if (element[1][3][1] == "true") {
-            puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
-        }
-        flag++;
-    });
-    if (flag < 15) {
-        getQuestion(flag, element, puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4);
-    }
-}
-
-/**
- * Función para obtener una pregunta
- * @param {Integer} flag 
- * @param {HTML element} pregunta 
- * @param {HTML element} respuesta1 
- * @param {HTML element} respuesta2 
- * @param {HTML element} respuesta3 
- * @param {HTML element} respuesta4 
- */
-function getQuestion(flag, puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4) {
-    getXML().then((data) => {
-        seleccion(flag, data[flag], puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4);
-        pregunta.innerHTML = data[flag][0];
-        respuesta1.innerHTML = data[flag][1][0][0];
-        respuesta2.innerHTML = data[flag][1][1][0];
-        respuesta3.innerHTML = data[flag][1][2][0];
-        respuesta4.innerHTML = data[flag][1][3][0];
-    }).catch((error) => {
         console.log(error);
-    });
+    }
 }
 
 /**
@@ -409,6 +340,10 @@ async function newGame() {
         var game_content = await fetch("./views/gameView.html");
         var game_content = await game_content.text();
         feature.innerHTML = game_content;
+        let waitForPressResolve;
+        function waitForPress() {
+            return new Promise(resolve => waitForPressResolve = resolve);
+        }
         const pregunta = document.getElementById("pregunta");
         const puntuacion = document.getElementById("puntuacion");
         const respuesta1 = document.getElementById("respuesta1");
@@ -419,7 +354,92 @@ async function newGame() {
         const boton2 = document.getElementById("boton2");
         const boton3 = document.getElementById("boton3");
         const boton4 = document.getElementById("boton4");
-        getQuestion(flag, puntuacion, boton1, boton2, boton3, boton4, pregunta, respuesta1, respuesta2, respuesta3, respuesta4);
+        function btnResolver() {
+            if (waitForPressResolve) waitForPressResolve();
+        }
+        let preguntas = [];
+        const response = await fetch('./xml/cuestionario.xml');
+        const xml = await response.text();
+        $(xml).find("enunciado").each(function () {
+            let temp = [$(this).text()];
+            let respuestas = [];
+            $(this).next().find("opcion").each(function () {
+                respuestas.push([$(this).text(), $(this).attr("select")]);
+            });
+            temp.push(respuestas);
+            preguntas.push(temp);
+        });
+        function shuffle(arr) {
+            let currentIndex = arr.length, randomIndex;
+            while (currentIndex != 0) {
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                [arr[currentIndex], arr[randomIndex]] = [arr[randomIndex], arr[currentIndex]];
+            }
+            return arr;
+        }
+        shuffle(preguntas);
+        async function doIt() {
+            boton1.addEventListener('click', btnResolver);
+            boton2.addEventListener('click', btnResolver);
+            boton3.addEventListener('click', btnResolver);
+            boton4.addEventListener('click', btnResolver);
+            for (let i = 0; i < 15; i += 1) {
+                pregunta.innerHTML = preguntas[i][0];
+                respuesta1.innerHTML = preguntas[i][1][0][0];
+                respuesta2.innerHTML = preguntas[i][1][1][0];
+                respuesta3.innerHTML = preguntas[i][1][2][0];
+                respuesta4.innerHTML = preguntas[i][1][3][0];
+                await waitForPress();
+            }
+            boton1.removeEventListener('click', btnResolver);
+            boton2.removeEventListener('click', btnResolver);
+            boton3.removeEventListener('click', btnResolver);
+            boton4.removeEventListener('click', btnResolver);
+            alert('Finished');
+        }
+        doIt();
+
+        //     async function doIt(data) {
+        //         boton1.addEventListener('click', btnResolver);
+        //         boton2.addEventListener('click', btnResolver);
+        //         boton3.addEventListener('click', btnResolver);
+        //         boton4.addEventListener('click', btnResolver);
+        //         for (let i = 0; i < 15; i += 1) {
+        //             pregunta.innerHTML = data[index][0];
+        //             respuesta1.innerHTML = data[index][1][0][0];
+        //             respuesta2.innerHTML = data[index][1][1][0];
+        //             respuesta3.innerHTML = data[index][1][2][0];
+        //             respuesta4.innerHTML = data[index][1][3][0];
+        //             await waitForPress();
+        //         }
+        //         btn.removeEventListener('click', btnResolver);
+        //         alert('Finished');
+        //     }
+        //     doIt(data);
+        //  boton1.addEventListener("click", () => {
+        //      if (data[index][1][0][1] == "true") {
+        //          puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
+        //      }
+        //  });
+        //  boton2.addEventListener("click", () => {
+        //      if (data[index][1][1][1] == "true") {
+        //          puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
+        //      }
+        //  });
+        //  boton3.addEventListener("click", () => {
+        //      if (data[index][1][2][1] == "true") {
+        //          puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
+        //      }
+        //  });
+        //  boton4.addEventListener("click", () => {
+        //      if (data[index][1][3][1] == "true") {
+        //          puntuacion.innerHTML = parseInt(puntuacion.innerHTML) + 1;
+        //      }
+        //  });
+        // }).catch((error) => {
+        //     console.log(error);
+        // });
     } catch (error) {
         console.log(error);
     }
@@ -458,15 +478,14 @@ async function getXML() {
             while (currentIndex != 0) {
                 randomIndex = Math.floor(Math.random() * currentIndex);
                 currentIndex--;
-                [arr[currentIndex], arr[randomIndex]] = [
-                    arr[randomIndex], arr[currentIndex]];
+                [arr[currentIndex], arr[randomIndex]] = [arr[randomIndex], arr[currentIndex]];
             }
             return arr;
         }
         let shuffled = shuffle(preguntas);
         return shuffled;
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }
 
@@ -495,7 +514,7 @@ async function loadHistory() {
         }
         tbody.innerHTML = texto;
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }
 // }

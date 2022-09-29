@@ -285,14 +285,14 @@ CEXT.onInit = () => {
             var menu_content = await menu_content.text();
             feature.innerHTML = menu_content;
             const gameButton = document.getElementById("jugar");
-            const addQuestionsButton = document.getElementById("preguntas");
+            // const addQuestionsButton = document.getElementById("preguntas");
             const historyButton = document.getElementById("historial");
             gameButton.addEventListener("click", () => {
                 loadGame();
             });
-            addQuestionsButton.addEventListener("click", () => {
-                loadAddQuestions();
-            });
+            // addQuestionsButton.addEventListener("click", () => {
+            //     loadAddQuestions();
+            // });
             historyButton.addEventListener("click", () => {
                 loadHistory();
             });
@@ -306,22 +306,23 @@ CEXT.onInit = () => {
      */
     async function loadGame() {
         try {
-            let partidaNum = null;
-            let estado = await CEXT.getGlobalStatus();
-            if (estado) {
-                if (confirm("Hay una partida guardada\n¿Desea continuarla?")) {
-                    partidaNum = await CEXT.getNumAttempts();
-                    const feature = document.getElementById("feature");
-                    var game_content = await fetch("./views/gameView.html");
-                    var game_content = await game_content.text();
-                    feature.innerHTML = game_content;
-                    alert("Continuando partida");
-                } else {
-                    newGame();
-                }
-            } else {
-                newGame();
-            }
+            newGame();
+            // let partidaNum = null;
+            // let estado = await CEXT.getGlobalStatus();
+            // if (estado) {
+            //     if (confirm("Hay una partida guardada\n¿Desea continuarla?")) {
+            //         partidaNum = await CEXT.getNumAttempts();
+            //         const feature = document.getElementById("feature");
+            //         var game_content = await fetch("./views/gameView.html");
+            //         var game_content = await game_content.text();
+            //         feature.innerHTML = game_content;
+            //         alert("Continuando partida");
+            //     } else {
+            //         newGame();
+            //     }
+            // } else {
+            //     newGame();
+            // }
         } catch (error) {
             console.log(error);
         }
@@ -449,12 +450,12 @@ CEXT.onInit = () => {
     /**
      * Función para cargar el HTML con el contenido de añadir preguntas
      */
-    async function loadAddQuestions() { // TODO: Acabar
-        const feature = document.getElementById("feature");
-        var addQuestions_content = await fetch("./views/addQuestionsView.html");
-        var addQuestions_content = await addQuestions_content.text();
-        feature.innerHTML = addQuestions_content;
-    }
+    // async function loadAddQuestions() { // TODO: Acabar
+    //     const feature = document.getElementById("feature");
+    //     var addQuestions_content = await fetch("./views/addQuestionsView.html");
+    //     var addQuestions_content = await addQuestions_content.text();
+    //     feature.innerHTML = addQuestions_content;
+    // }
 
     /**
      * Función para cargar el HTML con el contenido del historial de partidas
@@ -471,9 +472,9 @@ CEXT.onInit = () => {
                 loadGameMenu();
             });
             let texto = "";
-            let numPartidas = CEXT.getNumAttemp();
+            let numPartidas = CEXT.getNumAttemps();
             if (numPartidas == 0 || numPartidas == null) {
-                alert("No hay partidas registradas");
+                texto = "No hay partidas registradas";
             } else {
                 for (let i = 1; i <= numPartidas; i++) {
                     texto += `<tr><td>${i}</td><td>${CEXT.getAttempPoints(i)}</td></tr>`;

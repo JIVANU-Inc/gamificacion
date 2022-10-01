@@ -15,7 +15,7 @@ Proyecto de desarrollo de aplicación web que consiste en un juego de preguntas 
 
 ## Demo 🚀
 
-Si desea ver la implementación de nuestro proyecto, puede acceder a él si hace click [aquí](#).
+Si desea ver la implementación de nuestro proyecto, puede acceder a él si hace click [aquí](https://jivanu.tk/gamificacion/#inicio).
 
 ## Autores ✒️
 

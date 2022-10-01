@@ -7,7 +7,7 @@ CEXT.onInit = () => {
         menuActiveClass();
         accesibility();
         loadIndex();
-        window.setTimeout(fadeout, 300);
+        // window.setTimeout(fadeout, 300);
     };
 
     /**
@@ -33,14 +33,14 @@ CEXT.onInit = () => {
     /**
      * Efecto de fadeout al cargar la página
      */
-    function fadeout() {
-        try {
-            document.querySelector(".preloader").style.opacity = "0";
-            document.querySelector(".preloader").style.display = "none";
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // function fadeout() {
+    //     try {
+    //         document.querySelector(".preloader").style.opacity = "0";
+    //         document.querySelector(".preloader").style.display = "none";
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
     /**
      * Función para establecer la clase active en el menú

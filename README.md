@@ -1,6 +1,6 @@
 <h1 align="center">
 
-Concurso Gamificación Fundación Mapfre Guanarteme 🕹️
+Gamificación 🕹️
 
 </h1>
 

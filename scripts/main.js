@@ -5,8 +5,8 @@ CEXT.onInit = () => {
             loadCookiesMessage();
         }
         menuActiveClass();
-        accesibility();
         loadIndex();
+        accesibility();
         // window.setTimeout(fadeout, 300);
     };
 
@@ -157,11 +157,11 @@ CEXT.onInit = () => {
                 themeButtonInput.classList.remove("btn-outline-dark");
                 themeButtonInput.classList.add("btn-dark");
                 themeButtonInput.classList.add("dark-to-light");
-                theme.href = "./estilos/style_dark.css";
+                theme.href = "./estilos/style_dark.css?" + new Date().getTime();
                 modal_content.classList.add("modal-content-dark");
                 if (daltonicButtonInput.value == "1") {
                     // claro
-                    colorblind_css.href = "./estilos/style_colorblind_dark.css";
+                    colorblind_css.href = "./estilos/style_colorblind_dark.css?" + new Date().getTime();
                 } else {
                     // oscuro
                     colorblind_css.href = "";
@@ -175,10 +175,10 @@ CEXT.onInit = () => {
                 themeButtonInput.classList.add("btn-outline-dark");
                 themeButtonInput.classList.remove("btn-dark");
                 themeButtonInput.classList.remove("dark-to-light");
-                theme.href = "./estilos/style.css";
+                theme.href = "./estilos/style.css?" + new Date().getTime();
                 if (daltonicButtonInput.value == "1") {
                     // claro
-                    colorblind_css.href = "./estilos/style_colorblind.css";
+                    colorblind_css.href = "./estilos/style_colorblind.css?" + new Date().getTime();
                 } else {
                     // oscuro
                     colorblind_css.href = "";
@@ -189,20 +189,20 @@ CEXT.onInit = () => {
             function daltoninc2on() {
                 daltonicButtonInput.value = "1";
                 daltonicButtonInput.innerHTML = "<i class='bi bi-sunglasses'></i> (Encendido)";
-                logo.src = "./media/imagenes/logo_colorblind.jpg";
+                logo.src = "./media/imagenes/logo_colorblind.jpg?" + new Date().getTime();
                 if (themeButtonInput.value == "light") {
                     // claro
-                    colorblind_css.href = "./estilos/style_colorblind.css";
+                    colorblind_css.href = "./estilos/style_colorblind.css?" + new Date().getTime();
                 } else {
                     // oscuro
-                    colorblind_css.href = "./estilos/style_colorblind_dark.css";
+                    colorblind_css.href = "./estilos/style_colorblind_dark.css?" + new Date().getTime();
                 }
             }
 
             function daltonic2off() {
                 daltonicButtonInput.value = "0";
                 daltonicButtonInput.innerHTML = '<i class="bi bi-eyeglasses"></i> (Apagado)';
-                logo.src = "./media/imagenes/logo.jpg";
+                logo.src = "./media/imagenes/logo.jpg?" + new Date().getTime();
                 colorblind_css.href = "";
             }
         } catch (error) {
@@ -216,7 +216,7 @@ CEXT.onInit = () => {
     async function loadCookiesMessage() {
         try {
             const cookiesMessage = document.getElementById("cookiesMessage");
-            var cookies_message_content = await fetch("./views/cookiesMessage.html");
+            var cookies_message_content = await fetch("./views/cookiesMessage.html?" + new Date().getTime());
             var cookies_message_content = await cookies_message_content.text();
             cookiesMessage.innerHTML = cookies_message_content;
             document.getElementById("close").addEventListener("click", () => {
@@ -237,7 +237,7 @@ CEXT.onInit = () => {
             const indexMenuButton = document.getElementById("index");
             const documentsMenuButton = document.getElementById("documents");
             const gameMenuButton = document.getElementById("game");
-            var index_content = await fetch("./views/indexView.html");
+            var index_content = await fetch("./views/indexView.html?" + new Date().getTime());
             var index_content = await index_content.text();
             feature.innerHTML = index_content;
             const documentsCard = document.getElementById("documentosCard");
@@ -265,7 +265,7 @@ CEXT.onInit = () => {
     async function loadDocuments() {
         try {
             const feature = document.getElementById("feature");
-            var documents_content = await fetch("./views/documentsView.html");
+            var documents_content = await fetch("./views/documentsView.html?" + new Date().getTime());
             var documents_content = await documents_content.text();
             feature.innerHTML = documents_content;
         } catch (error) {
@@ -279,7 +279,7 @@ CEXT.onInit = () => {
     async function loadGameMenu() {
         try {
             const feature = document.getElementById("feature");
-            var menu_content = await fetch("./views/gameMenu.html");
+            var menu_content = await fetch("./views/gameMenu.html?" + new Date().getTime());
             var menu_content = await menu_content.text();
             feature.innerHTML = menu_content;
             const gameButton = document.getElementById("jugar");
@@ -333,7 +333,7 @@ CEXT.onInit = () => {
         try {
             CEXT.starNewAttemp();
             const feature = document.getElementById("feature");
-            var game_content = await fetch("./views/gameView.html");
+            var game_content = await fetch("./views/gameView.html?" + new Date().getTime());
             var game_content = await game_content.text();
             feature.innerHTML = game_content;
             let waitForPressResolve;
@@ -348,7 +348,7 @@ CEXT.onInit = () => {
             const boton3 = document.getElementById("boton3");
             const boton4 = document.getElementById("boton4");
             let preguntas = [];
-            const response = await fetch('./xml/cuestionario.xml');
+            const response = await fetch('./xml/cuestionario.xml?' + new Date().getTime());
             const xml = await response.text();
             $(xml).find("enunciado").each(function () {
                 let temp = [$(this).text()];
@@ -461,7 +461,7 @@ CEXT.onInit = () => {
     async function loadHistory() {
         try {
             const feature = document.getElementById("feature");
-            var history_content = await fetch("./views/historyView.html");
+            var history_content = await fetch("./views/historyView.html?" + new Date().getTime());
             var history_content = await history_content.text();
             feature.innerHTML = history_content;
             const volver = document.getElementById("volver");

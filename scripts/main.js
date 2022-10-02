@@ -216,9 +216,7 @@ CEXT.onInit = () => {
     async function loadCookiesMessage() {
         try {
             const cookiesMessage = document.getElementById("cookiesMessage");
-            var cookies_message_content = await fetch(
-                "./views/cookiesMessage.html"
-            );
+            var cookies_message_content = await fetch("./views/cookiesMessage.html");
             var cookies_message_content = await cookies_message_content.text();
             cookiesMessage.innerHTML = cookies_message_content;
             document.getElementById("close").addEventListener("click", () => {
